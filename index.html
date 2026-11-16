@@ -1,0 +1,2499 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Technical English for Renewable Energy</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Patrick+Hand&display=swap">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --panel:#F8F5F0;
+    --bubble:#F4EFE6;
+    --ink:#211B14;
+    --ink-soft:#5C4D3C;
+    --ink-faint:#968574;
+    --line:#E8E0D5;
+    --line-strong:#D6C9B8;
+--red: #7C5421;
+--red-fill: #5E4017;
+--red-mid: #8F6227;
+--red-soft: #5E40170f;
+--red-soft2: #5E40171a;
+    --yellow:#F0C929;
+    --good:#2C7A4B;
+    --good-bg:#2C7A4B1a;
+    --bad:#B3661A;
+    --bad-bg:#B3661A1a;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1A1612;
+      --panel:#241E18;
+      --bubble:#2B231C;
+      --ink:#F3EDE4;
+      --ink-soft:#C8BAAA;
+      --ink-faint:#8F8071;
+      --line:#3D3328;
+      --line-strong:#524536;
+--red: #D4A373;
+--red-fill: #4A3312;
+--red-mid: #E0B486;
+--red-soft: #D4A37314;
+--red-soft2: #D4A37326;
+      --yellow:#F0C929;
+      --good:#5FCB8C;
+      --good-bg:#5FCB8C1f;
+      --bad:#E0995A;
+      --bad-bg:#E0995A1f;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1A1612;
+    --panel:#241E18;
+    --bubble:#2B231C;
+    --ink:#F3EDE4;
+    --ink-soft:#C8BAAA;
+    --ink-faint:#8F8071;
+    --line:#3D3328;
+    --line-strong:#524536;
+--red: #D4A373;
+--red-fill: #4A3312;
+--red-mid: #E0B486;
+--red-soft: #D4A37314;
+--red-soft2: #D4A37326;
+    --yellow:#F0C929;
+    --good:#5FCB8C;
+    --good-bg:#5FCB8C1f;
+    --bad:#E0995A;
+    --bad-bg:#E0995A1f;
+    color-scheme: dark;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter", sans-serif;
+    font-size:16px;
+    line-height:1.55;
+  }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 20px; }
+  h1,h2,h3{ font-family:"Poppins", sans-serif; text-wrap:balance; }
+  a{ color:var(--red-mid); }
+  .kicker{
+    font-family:"Inter", sans-serif;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    opacity:.75;
+    margin:0 0 4px;
+  }
+
+  /* Top masthead */
+  .top-masthead{ background:var(--red-fill); color:#fff; padding:34px 20px 32px; }
+  .top-masthead-inner{ max-width:920px; margin:0 auto; }
+  .top-masthead h1{ margin:0; font-size:clamp(1.6rem,4.5vw,2.2rem); font-weight:700; }
+  .top-masthead .progress-note{ margin:10px 0 0; font-size:.88rem; opacity:.85; }
+
+  /* Contents */
+  .contents{ margin:36px 0 44px; }
+  .contents-title{ margin:0 0 16px; font-size:1.1rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); font-weight:600; }
+  .contents-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+  .contents-card{
+    display:flex; gap:12px; align-items:flex-start;
+    padding:13px 15px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    text-decoration:none;
+    color:inherit;
+  }
+  .contents-card:hover{ border-color:var(--red-mid); }
+  .contents-num{
+    flex:0 0 auto; width:28px; height:28px;
+    background:var(--yellow); color:#26260a;
+    font-family:"Poppins",sans-serif; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:6px;
+  }
+  .contents-text{ font-family:"Poppins",sans-serif; color:var(--ink); font-size:.92rem; font-weight:600; line-height:1.35; }
+
+  /* Topic pager */
+  .topic-pager{ display:flex; align-items:center; justify-content:center; gap:10px; margin:52px 0 22px; flex-wrap:wrap; }
+  .topic-pager a{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:7px 14px; border-radius:20px;
+    border:1.5px solid var(--line-strong);
+    font-family:"Poppins",sans-serif; font-weight:600; font-size:.82rem;
+    color:var(--ink-soft); text-decoration:none;
+  }
+  .topic-pager a:hover{ border-color:var(--red-mid); color:var(--red-mid); }
+  .topic-pager .count{ font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--ink-faint); }
+
+  /* Topic hero (full-bleed) */
+  .unit-hero{ background:var(--red-fill); color:#fff; padding:28px 0 26px; margin:0; }
+  .unit-hero-inner{ max-width:920px; margin:0 auto; padding:0 20px; display:flex; align-items:center; gap:18px; }
+  .unit-badge{
+    flex:0 0 auto; width:52px; height:52px;
+    background:var(--yellow); color:#26260a;
+    font-family:"Poppins", sans-serif; font-weight:700; font-size:24px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:8px;
+  }
+  .unit-hero h1{ margin:0; font-size:clamp(1.5rem,4.5vw,2.1rem); font-weight:700; }
+  .unit-hero .kicker{ opacity:.75; }
+
+  .lede{ font-size:1.02rem; color:var(--ink-soft); }
+  .lede strong{ color:var(--ink); font-weight:600; }
+
+  .term-list{ list-style:none; margin:18px 0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .term-list li{
+    background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--red-mid);
+    border-radius:6px; padding:10px 14px;
+  }
+
+  .notes-box{
+    margin-top:18px; padding:14px 18px;
+    background:var(--red-soft); border:1px solid var(--red-soft2);
+    border-radius:8px; font-size:.93rem; color:var(--ink-soft);
+  }
+  .notes-box b{ color:var(--ink); }
+  .notes-box div + div{ margin-top:6px; }
+
+  .mistake-pair{ display:flex; flex-wrap:wrap; gap:20px; margin:16px 0; }
+  .mistake-col{ flex:1 1 260px; }
+  .mistake-col h5{ margin:0 0 8px; font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:"Poppins",sans-serif; }
+  .mistake-col div{ margin-bottom:6px; font-size:.94rem; }
+  .mistake-col.wrong div::before{ content:"\2717  "; color:var(--bad); font-weight:700; }
+  .mistake-col.right div::before{ content:"\2713  "; color:var(--good); font-weight:700; }
+
+  /* Speech bubbles */
+  .bubble-field{ display:flex; flex-wrap:wrap; gap:16px; margin:18px 0 6px; }
+  .bubble{
+    background:var(--bubble); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; flex:1 1 260px; max-width:420px;
+    font-family:"Patrick Hand", cursive; font-size:1.15rem; line-height:1.35;
+    color:var(--ink); position:relative;
+  }
+  .bubble b{ color:var(--red-mid); }
+  .bubble::after{
+    content:""; position:absolute; width:16px; height:16px; background:var(--bubble);
+    border-left:1px solid var(--line); border-bottom:1px solid var(--line);
+    bottom:-8px; left:28px; transform:rotate(-45deg);
+  }
+  .bubble:nth-child(even)::after{ left:auto; right:28px; }
+  .bubble.exercise-bubble{ font-family:"Inter",sans-serif; font-size:.98rem; line-height:1.65; max-width:460px; }
+  .bubble.exercise-bubble .blank{ margin:0 2px; }
+
+  /* Meme / illustration placeholder */
+  .meme-placeholder{
+    margin:18px 0; padding:22px;
+    border:1.5px dashed var(--line-strong);
+    border-radius:10px;
+    background:var(--panel);
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    text-align:center;
+  }
+  .meme-placeholder .icon{ font-size:1.6rem; }
+  .meme-placeholder .caption{ font-size:.86rem; color:var(--ink-faint); font-style:italic; max-width:480px; }
+
+  /* Original illustrations (plain – no bubble) */
+  .illustration-card{
+    margin:24px 0;
+  }
+  .illustration-card svg{ width:100%; height:auto; display:block; color:var(--ink-soft); }
+  .illustration-card img{ width:100%; height:auto; display:block; border-radius:6px; }
+  .illustration-card figcaption{ margin-top:10px; font-size:.82rem; color:var(--ink-faint); font-style:italic; text-align:center; }
+
+  /* Reading text (plain – no bubble) */
+  .reading-card{
+    margin:28px 0;
+  }
+  .reading-card h4{
+    margin:0 0 14px; font-family:"Poppins",sans-serif;
+    font-size:1.18rem; color:var(--red-fill); font-weight:700;
+    padding-bottom:7px; border-bottom:2px solid var(--red-mid);
+  }
+  .reading-card .reading-text{
+    font-size:1.02rem; line-height:1.8; color:var(--ink);
+  }
+  .reading-card .reading-text strong{
+    color:var(--red-mid); font-weight:700;
+  }
+
+  /* Vocabulary bubble (definitions & word lists) */
+  .def-box{
+    margin:22px 0; padding:16px 20px;
+    background:var(--bubble);
+    border:1px solid var(--line);
+    border-radius:14px;
+  }
+  .def-box > p:first-child{ margin-top:0; }
+  .def-box > p:last-child{ margin-bottom:0; }
+  .def-box strong{ color:var(--red-mid); }
+
+  /* "Over to you" reflection box */
+  .over-to-you{
+    margin:46px 0 8px;
+    background:var(--red-fill);
+    color:#fff;
+    border-radius:12px;
+    padding:26px 26px 24px;
+  }
+  .over-to-you-head{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .over-to-you h3{ margin:0; font-size:1.2rem; font-style:italic; }
+  .over-to-you p{ margin:0 0 14px; opacity:.92; }
+  .over-to-you a{ color:var(--yellow); text-decoration:underline; }
+  .over-to-you-video{
+    position:relative; width:100%; aspect-ratio:16/9;
+    margin:0 0 18px; overflow:hidden; border-radius:10px;
+  }
+  .over-to-you-video iframe{
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    border:0; border-radius:10px;
+  }
+  .over-to-you textarea{
+    width:100%;
+    min-height:90px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-family:"Inter",sans-serif;
+    font-size:.95rem;
+    padding:12px;
+    resize:vertical;
+  }
+  .over-to-you textarea::placeholder{ color:rgba(255,255,255,.55); }
+  .over-to-you textarea:focus{ outline:2px solid var(--yellow); outline-offset:1px; }
+  .over-to-you .save-note{ font-size:.78rem; opacity:.7; margin-top:8px; transition:opacity .25s; }
+  .over-to-you .save-note.flash{ opacity:1; color:var(--yellow); }
+
+  /* Exercises */
+  .exercise{ margin-top:28px; padding:22px 22px 20px; background:var(--panel); border:1px solid var(--line); border-radius:10px; }
+  .exercise-num{
+    display:inline-block; font-family:"Poppins",sans-serif; font-weight:700; color:#fff;
+    background:var(--red-fill); font-size:.85rem; padding:3px 9px; border-radius:5px;
+    margin-right:10px; vertical-align:middle;
+  }
+  .exercise h3{ margin:0 0 6px; font-size:1.1rem; display:flex; align-items:center; }
+  .exercise .instructions{ color:var(--ink-soft); font-size:.94rem; margin:0 0 16px; }
+
+  .cloze-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  .cloze-list li{ line-height:2.1; }
+  .cloze-list .qnum{ font-family:"IBM Plex Mono",monospace; color:var(--ink-faint); font-size:.85rem; margin-right:4px; }
+  .blank{
+    font-family:"Inter",sans-serif; font-size:.96rem; padding:4px 7px;
+    border:1.5px solid var(--line-strong); border-radius:5px;
+    background:var(--paper); color:var(--ink); min-width:90px; margin:0 2px;
+  }
+  .blank:focus{ outline:2px solid var(--red-mid); outline-offset:1px; }
+  .blank.correct{ border-color:var(--good); background:var(--good-bg); }
+  .blank.incorrect{ border-color:var(--bad); background:var(--bad-bg); }
+
+  .exercise-controls{ margin-top:18px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  button.btn{
+    font-family:"Poppins",sans-serif; font-weight:600; font-size:.88rem; padding:9px 18px;
+    border-radius:6px; border:1.5px solid var(--red-fill); background:var(--red-fill); color:#fff; cursor:pointer;
+  }
+  button.btn.secondary{ background:transparent; color:var(--red-mid); border-color:var(--line-strong); }
+  button.btn:hover{ filter:brightness(1.08); }
+  .score{ font-family:"IBM Plex Mono",monospace; font-size:.88rem; color:var(--ink-soft); }
+  .score.done{ color:var(--good); font-weight:600; }
+
+  /* Matching */
+  .match-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:560px){ .match-grid{ grid-template-columns:1fr; } }
+  .match-col h4{ margin:0 0 10px; font-size:.8rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); }
+  .match-item{
+    padding:10px 12px; margin-bottom:8px; background:var(--paper);
+    border:1.5px solid var(--line-strong); border-radius:6px; font-size:.94rem; cursor:pointer; user-select:none;
+  }
+  .match-item.selected{ border-color:var(--red-mid); box-shadow:0 0 0 2px var(--red-soft2); }
+  .match-item.matched{ border-color:var(--good); background:var(--good-bg); cursor:default; }
+  .match-item.wrong{ border-color:var(--bad); background:var(--bad-bg); }
+  .match-item .tag{ display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--ink-faint); margin-right:8px; }
+
+  /* Word bank + chips */
+  .word-bank{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px; min-height:14px; }
+  .word-chip{
+    font-family:"IBM Plex Mono",monospace; font-size:.85rem; padding:5px 11px; border-radius:14px;
+    background:var(--red-soft2); color:var(--red-mid); border:1px solid var(--red-soft2);
+  }
+  .word-chip.selectable{ cursor:pointer; user-select:none; }
+  .word-chip.chip-selected{ outline:2px solid var(--red-mid); outline-offset:1px; }
+  .word-chip.chip-correct{ background:var(--good-bg); color:var(--good); border-color:var(--good); }
+  .word-chip.chip-incorrect{ background:var(--bad-bg); color:var(--bad); border-color:var(--bad); }
+
+  /* Choice exercise */
+  .choice-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+  .choice-list li{ line-height:2.2; }
+  .choice-list .qnum{ font-family:"IBM Plex Mono",monospace; color:var(--ink-faint); font-size:.85rem; margin-right:4px; }
+  .choice-pill{
+    display:inline-block; padding:5px 13px; border-radius:16px; border:1.5px solid var(--line-strong);
+    font-family:"IBM Plex Mono",monospace; font-size:.85rem; cursor:pointer; color:var(--ink-soft);
+    background:var(--paper); user-select:none; margin:0 3px; max-width:100%;
+  }
+  .choice-inline{ display:inline; }
+  .choice-pill.selected{ border-color:var(--red-mid); color:var(--red-mid); background:var(--red-soft2); }
+  .choice-pill.correct{ border-color:var(--good); background:var(--good-bg); color:var(--good); }
+  .choice-pill.incorrect{ border-color:var(--bad); background:var(--bad-bg); color:var(--bad); }
+
+  /* Reference table */
+  .ref-table{ width:100%; border-collapse:collapse; margin:18px 0; font-size:.94rem; }
+  .ref-table th, .ref-table td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); }
+  .ref-table th{ font-family:"Poppins",sans-serif; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); }
+
+  /* Closing note */
+  .closing-note{
+    margin:52px 0 0; background:var(--red-fill); color:#fff; border-radius:12px; padding:26px 26px 24px; text-align:center;
+  }
+  .closing-note h3{ margin:0 0 8px; font-size:1.3rem; font-style:italic; }
+  .closing-note p{ margin:0; opacity:.9; }
+
+  footer{ max-width:920px; margin:40px auto 0; padding:20px 0 80px; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink-faint); }
+</style>
+
+<div class="top-masthead">
+  <div class="top-masthead-inner">
+    <p class="kicker">Interactive Textbook for English for Renewable Energy</p>
+    <h1>Technical English for Renewable Energy</h1>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="contents" id="top">
+    <h2 class="contents-title">Contents</h2>
+    <div class="contents-grid" id="contents-grid"></div>
+  </div>
+</div>
+
+<div id="topics-root"></div>
+
+<div class="wrap">
+  <div class="closing-note">
+    <p>This educational material is based on work by Rozália Szabó and is distributed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) licence.
+
+You are free to share, copy, redistribute, remix, transform, and build upon this material for non-commercial purposes, provided that appropriate credit is given to the original author and any adaptations are distributed under the same licence.</p>
+  </div>
+</div>
+
+<script>
+
+function normalize(s){
+  return (s||"").toLowerCase().trim().replace(/[.,!?]/g,"").replace(/\s+/g," ").replace(/-/g," ");
+}
+function altSet(answers){ return answers.map(normalize); }
+
+/* ---------- Generic cloze (token-based, supports multiple blanks per line) ---------- */
+function buildTokenCloze(exId, containerId, lines){
+  const container = document.getElementById(containerId);
+  lines.forEach(line=>{
+    const li = document.createElement('li');
+    li.innerHTML = line.replace(/\{(\d+)(?:\|(given):([^}]*))?\}/g, (m, idx, g, val)=>{
+      if(g==='given') return '<input class="blank correct" type="text" data-idx="'+idx+'" value="'+val+'" disabled>';
+      return '<input class="blank" type="text" data-idx="'+idx+'" autocomplete="off">';
+    });
+    container.appendChild(li);
+  });
+}
+function checkExercise(exId){
+  const inputs = document.querySelectorAll('#'+exId+' .blank:not([disabled])');
+  let correct = 0;
+  inputs.forEach(inp=>{
+    const idx = +inp.dataset.idx;
+    const ok = altSet(EX[exId][idx]).includes(normalize(inp.value));
+    inp.classList.remove('correct','incorrect');
+    inp.classList.add(ok?'correct':'incorrect');
+    if(ok) correct++;
+  });
+  const scoreEl = document.getElementById(exId+'-score');
+  scoreEl.textContent = correct+' / '+inputs.length+' correct';
+  scoreEl.classList.toggle('done', correct===inputs.length);
+}
+function revealExercise(exId){
+  const inputs = document.querySelectorAll('#'+exId+' .blank:not([disabled])');
+  inputs.forEach(inp=>{
+    const idx = +inp.dataset.idx;
+    inp.value = EX[exId][idx][0];
+    inp.classList.remove('correct','incorrect');
+    inp.classList.add('correct');
+  });
+  document.getElementById(exId+'-score').textContent = 'Answers revealed';
+}
+function resetExercise(exId){
+  const inputs = document.querySelectorAll('#'+exId+' .blank:not([disabled])');
+  inputs.forEach(inp=>{ inp.value=''; inp.classList.remove('correct','incorrect'); });
+  document.getElementById(exId+'-score').textContent = '';
+}
+function buildBank(exId, containerId, words){
+  const bank = document.getElementById(containerId);
+  words.forEach(w=>{
+    const c = document.createElement('span');
+    c.className='word-chip';
+    c.textContent = w;
+    bank.appendChild(c);
+  });
+}
+
+/* ---------- Matching exercise (generic) ---------- */
+const MATCH = {};
+function renderMatch(exId, pairs){
+  MATCH[exId] = { pairs, selected:null, matchedCount:0 };
+  const leftCol = document.getElementById(exId+'-left');
+  const rightCol = document.getElementById(exId+'-right');
+  leftCol.innerHTML=''; rightCol.innerHTML='';
+  const rightShuffled = pairs.map(p=>p.key).sort(()=>Math.random()-0.5);
+  pairs.forEach((p,i)=>{
+    const el = document.createElement('div');
+    el.className='match-item'; el.dataset.id=i;
+    el.innerHTML = '<span class="tag">'+(i+1)+'</span>'+p.desc;
+    el.onclick = ()=>selectDesc(exId, i, el);
+    leftCol.appendChild(el);
+  });
+  const letters = 'abcdefghij';
+  rightShuffled.forEach((key,i)=>{
+    const label = pairs.find(p=>p.key===key).label;
+    const el = document.createElement('div');
+    el.className='match-item'; el.dataset.key=key;
+    el.innerHTML = '<span class="tag">'+letters[i]+'</span>'+label;
+    el.onclick = ()=>selectTerm(exId, key, el);
+    rightCol.appendChild(el);
+  });
+}
+function selectDesc(exId, id, el){
+  if(el.classList.contains('matched')) return;
+  document.querySelectorAll('#'+exId+'-left .match-item').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+  MATCH[exId].selected = id;
+}
+function selectTerm(exId, key, el){
+  const state = MATCH[exId];
+  if(el.classList.contains('matched') || state.selected===null) return;
+  const pair = state.pairs[state.selected];
+  const leftEl = document.querySelector('#'+exId+'-left .match-item[data-id="'+state.selected+'"]');
+  if(pair.key===key){
+    leftEl.classList.add('matched'); leftEl.classList.remove('selected');
+    el.classList.add('matched');
+    state.matchedCount++;
+    document.getElementById(exId+'-score').textContent = state.matchedCount+' / '+state.pairs.length+' matched';
+    document.getElementById(exId+'-score').classList.toggle('done', state.matchedCount===state.pairs.length);
+  } else {
+    el.classList.add('wrong');
+    setTimeout(()=>{ el.classList.remove('wrong'); leftEl.classList.remove('selected'); },500);
+  }
+  state.selected = null;
+}
+function resetMatch(exId){
+  document.getElementById(exId+'-score').textContent = '';
+  renderMatch(exId, MATCH[exId].pairs);
+}
+
+/* ---------- Choice exercise (generic) ---------- */
+const CHOICE = {};
+/* A "..." (or "…") inside a sentence marks the gap the student has to fill. */
+const CHOICE_BLANK = /(\.{3}|…)/;
+function renderChoice(exId, qs){
+  CHOICE[exId] = qs;
+  const list = document.getElementById(exId+'-list');
+  list.innerHTML='';
+  qs.forEach((q,i)=>{
+    const li = document.createElement('li');
+    li.dataset.idx = i;
+    let optsHtml = '';
+    q.options.forEach(opt=>{ optsHtml += '<span class="choice-pill" data-opt="'+opt+'">'+opt+'</span>'; });
+    /* If the sentence marks the gap with "...", the option chips go into the
+       sentence itself; otherwise they are listed after it as before. */
+    const blank = q.text.match(CHOICE_BLANK);
+    let body;
+    if(blank){
+      const before = q.text.slice(0, blank.index);
+      let after = q.text.slice(blank.index + blank[0].length);
+      /* "your … ." → "your [chips]." – drop the space in front of punctuation */
+      if(/^\s+[.,;:!?]/.test(after)) after = after.replace(/^\s+/, '');
+      body = before + '<span class="choice-inline">' + optsHtml + '</span>' + after + (q.suffix ? ' ' + q.suffix : '');
+    } else {
+      body = q.text + ' ' + optsHtml + ' ' + q.suffix;
+    }
+    li.innerHTML = '<span class="qnum">'+(i+1)+'</span> '+body;
+    li.querySelectorAll('.choice-pill').forEach(pill=>{
+      pill.onclick = ()=>{
+        li.querySelectorAll('.choice-pill').forEach(p=>p.classList.remove('selected','correct','incorrect'));
+        pill.classList.add('selected');
+      };
+    });
+    list.appendChild(li);
+  });
+}
+function checkChoice(exId){
+  const items = document.querySelectorAll('#'+exId+' .choice-list li');
+  let correct = 0;
+  items.forEach(li=>{
+    const idx = +li.dataset.idx;
+    const answer = CHOICE[exId][idx].answer;
+    const selected = li.querySelector('.choice-pill.selected');
+    li.querySelectorAll('.choice-pill').forEach(p=>p.classList.remove('correct','incorrect'));
+    if(selected && selected.dataset.opt===answer){ selected.classList.add('correct'); correct++; }
+    else if(selected){ selected.classList.add('incorrect'); }
+  });
+  const scoreEl = document.getElementById(exId+'-score');
+  scoreEl.textContent = correct+' / '+items.length+' correct';
+  scoreEl.classList.toggle('done', correct===items.length);
+}
+function revealChoice(exId){
+  const items = document.querySelectorAll('#'+exId+' .choice-list li');
+  items.forEach(li=>{
+    const idx = +li.dataset.idx;
+    const answer = CHOICE[exId][idx].answer;
+    li.querySelectorAll('.choice-pill').forEach(p=>{
+      p.classList.remove('selected','incorrect','correct');
+      if(p.dataset.opt===answer) p.classList.add('correct');
+    });
+  });
+  document.getElementById(exId+'-score').textContent = 'Answers revealed';
+}
+function resetChoice(exId){
+  renderChoice(exId, CHOICE[exId]);
+  document.getElementById(exId+'-score').textContent = '';
+}
+
+/* ---------- "Over to you" notes (persisted in this browser) ---------- */
+const NOTES_PREFIX = 'res-over-to-you:';
+function notesKey(id){ return NOTES_PREFIX + id; }
+function overToYouHtml(b){
+  return '<div class="over-to-you">' +
+    '<div class="over-to-you-head"><h3>Over to you</h3></div>' +
+    '<p>'+b.prompt+'</p>' +
+    (b.video ? '<div class="over-to-you-video"><iframe src="'+b.video.src+'" title="'+b.video.title+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>' : '') +
+    '<textarea id="'+b.id+'" placeholder="Type your notes here&hellip;"></textarea>' +
+    '<div class="save-note" data-note-for="'+b.id+'">Saved automatically in this browser only &mdash; not shared with anyone.</div>' +
+    '</div>';
+}
+function initNotes(){
+  document.querySelectorAll('.over-to-you textarea').forEach(ta=>{
+    const key = notesKey(ta.id);
+    const note = ta.parentElement.querySelector('.save-note');
+    let saved = '';
+    try{ saved = window.localStorage.getItem(key) || ''; }catch(e){}
+    if(saved) ta.value = saved;
+
+    let timer = null;
+    ta.addEventListener('input', ()=>{
+      try{ window.localStorage.setItem(key, ta.value); }catch(e){}
+      if(note){
+        note.textContent = 'Notes saved in this browser.';
+        note.classList.add('flash');
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+          note.textContent = 'Saved automatically in this browser only — not shared with anyone.';
+          note.classList.remove('flash');
+        }, 1800);
+      }
+    });
+  });
+}
+
+</script>
+
+<script>
+
+
+
+const EX = {};
+
+const TOPICS = [
+
+// =========================================================
+//    Unit 1: Renewable Energy and Rural Development – Part 1
+// =========================================================
+{
+  id: 't1',
+  num: 1,
+  title: "Renewable Energy and Rural Development – Part 1",
+  blocks: [
+    {
+      type: 'image',
+      src: 'images/unit1-main.png',
+      alt: 'Renewable energy and rural development',
+      caption: 'Renewable energy and rural development'
+    },
+    {
+      type: 'p',
+      html: "Read the following text twice."
+    },
+    {
+      type: 'reading',
+      title: "Introduction",
+      html: `<p>Our everyday activities depend heavily on energy. Traditional fossil fuels like coal, oil and natural gas, however, pollute the environment, and it is becoming more and more expensive to find and extract them. Furthermore, we are running out of them. So, it is very urgent to find new sources to meet the increasing energy needs of the growing population of the Earth.</p>
+<p>Eco-friendly, or green energy sources like solar and wind power, hydropower and biomass do not have a negative impact on the environment. They are also renewable, which means we will never run out of them as they are continuously replenished.</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.95rem; line-height:1.7;">
+<strong>to extract</strong> &ndash; to take out, to remove<br>
+<strong>to replenish</strong> &ndash; to make full or complete again (e.g. <em>'He replenished my glass with mineral water.'</em>)
+</p>`
+    },
+    {
+      type: 'image',
+      src: 'images/carrot.png',
+      alt: 'A carrot acting as a source of energy',
+      caption: 'A new source of renewable energy?'
+    },
+    {
+      type: 'p',
+      html: "Read the text below about the difference between renewable and non-renewable energy, and try to understand as much as possible. Don't use a dictionary."
+    },
+    {
+      type: 'reading',
+      title: "Renewable and non-renewable energy resources",
+      html: `<p>Over the last 200 years, an ever-increasing proportion of our energy has come from non-renewable sources such as oil and coal. While demand for energy rises, these resources are running out and scientists are exploring the potential of renewable sources of energy for the future.</p>
+<p>All life on earth is sustained by energy from the sun. Plants and animals can store energy and some of this energy remains with them when they die. It is the remains of these ancient animals and plants that make up fossil fuels.</p>
+<p>Fossil fuels are non-renewable because they will run out one day. Burning fossil fuels generates greenhouse gases and relying on them for energy generation is unsustainable. Hence the need to find more renewable, sustainable ways of generating energy. Renewable or infinite energy resources are sources of power that quickly replenish themselves and can be used again and again.</p>
+<p>Estimates from international organisations suggest that if the world's demand for energy from fossil fuels continues at the present rate, oil and gas reserves may run out within some of our lifetimes. The estimated length of time left for oil is 50 years, while for natural gas it is 70 years. Coal is expected to last longer, about 250 years.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://www.bbc.co.uk/schools/gcsebitesize/geography/energy_resources/energy_rev1.shtml" target="_blank">BBC Bitesize &ndash; Energy Resources</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.95rem; line-height:1.7;">
+<strong>to increase</strong> &ndash; to rise, to go up<br>
+<strong>ever-increasing</strong> &ndash; continuously increasing<br>
+<strong>to sustain</strong> &ndash; to keep up, to support<br>
+<strong>to estimate</strong> &ndash; to calculate approximately
+</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Now, check the meanings of the following important words and phrases:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">proportion</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">such as</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to rely on sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">sustainable</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">sustainable development</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">sustainable future</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">sustainability</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">an estimate</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to estimate</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">demand for sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">a reserve</span>
+</div>`
+    },
+    {
+      type: 'p',
+      html: `<h3 style="font-family:'Poppins',sans-serif; color:var(--ink); font-size:1.22rem; margin:28px 0 10px; text-transform:uppercase; letter-spacing:0.04em; border-bottom:2px solid var(--red-mid); padding-bottom:6px;">The Passive Voice</h3>
+<p>Look at the sentence below:</p>
+<p style="font-size:1.06rem; font-weight:600; color:var(--red); margin:8px 0 12px; padding:10px 14px; background:var(--panel); border-left:4px solid var(--red-fill); border-radius:4px;">Renewable energy resources can be used again and again.</p>
+<p>It means: <em>You can use renewable energy resources again and again.</em> But the first sentence is more elegant. It is a passive sentence, while the second one is active. In formal texts, you will find a lot of passive sentences so it is important to understand them.</p>
+<p style="margin-top:14px;"><strong>How to form the passive voice?</strong></p>
+<p>It has two elements: <strong>be + V3</strong></p>
+<p>You must always use 'be' in the right tense and form. So, if your sentence is in the present tense, you should use 'am', 'is' or 'are'. If it is in the past tense, use 'was' or 'were'. After auxiliary verbs like 'will', 'must', 'can', 'should' etc, you must use the infinitive form 'be'.</p>
+<p style="margin-top:14px;"><strong>Let's see some examples:</strong></p>
+<ul style="margin:8px 0 16px 22px; padding:0; line-height:1.9;">
+  <li>The passive voice is used in formal texts.</li>
+  <li>This house was built in 1972.</li>
+  <li>Renewable energy resources weren't considered important 100 years ago.</li>
+  <li>Wind energy will be used in more countries in the future.</li>
+  <li>The energy of the sun has been used for a long time.</li>
+</ul>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty1',
+      prompt: 'What is the difference between global warming and climate change?'
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't1ex1',
+      tag: '1.1',
+      title: "Which of these energy resources are renewable?",
+      instr: "Select 'yes' or 'no' for each energy resource.",
+      qs: [
+        { text: "wind energy", options: ["yes", "no"], suffix: "", answer: "yes" },
+        { text: "coal", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "oil", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "solar energy", options: ["yes", "no"], suffix: "", answer: "yes" },
+        { text: "hydropower", options: ["yes", "no"], suffix: "", answer: "yes" },
+        { text: "natural gas", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "biomass", options: ["yes", "no"], suffix: "", answer: "yes" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't1ex2',
+      tag: '1.2',
+      title: "Match the words to form phrases",
+      instr: "Match the words to form phrases. You can go back to the text if you don't remember a phrase.",
+      leftLabel: "Word",
+      rightLabel: "Completes with",
+      pairs: [
+        { desc: "fossil", key: "fuel", label: "fuel" },
+        { desc: "depend", key: "on", label: "on something" },
+        { desc: "to have", key: "impact", label: "an impact on something" },
+        { desc: "to meet", key: "needs", label: "needs" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't1ex3',
+      tag: '1.3',
+      title: "True or false on the basis of the text",
+      instr: "Read the text again, and then look at these sentences. Are they true or false on the basis of the text?",
+      qs: [
+        { text: "About 200 years ago, people used a lot of oil and coal.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "All life on earth depends on the energy of the sun.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "If we rely on non-renewable energy in the future, our life will be sustainable.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Greenhouse gases are generated by burning fossil fuels.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The energy in animals and plants comes from the sun.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The estimated time left for coal reserves is 250 years, if demand does not grow.", options: ["true", "false"], suffix: "", answer: "false" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't1ex4',
+      tag: '1.4',
+      title: "Match the words with their definitions",
+      instr: "Match the words with their definitions from the text.",
+      leftLabel: "Word",
+      rightLabel: "Definition",
+      pairs: [
+        { desc: "proportion", key: "prop", label: "part, share" },
+        { desc: "such as", key: "such", label: "for example" },
+        { desc: "demand", key: "dem", label: "strong need" }
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't1ex5',
+      tag: '1.5',
+      title: "Complete the sentences with the correct forms of 'be'",
+      instr: "Complete the following sentences with the correct forms of 'be'.",
+      lines: [
+        "Next year, a new power plant will {0} built near our town.",
+        "Non-renewable energy sources must {1} used less often.",
+        "Wood {2} first used as a source of energy thousands of years ago, when early humans learnt to make fire.",
+        "How long has wind energy {3} used by humans?",
+        "Oil and natural gas should {4} replaced by renewable energy sources."
+      ],
+      answers: [
+        ["be"],
+        ["be"],
+        ["was"],
+        ["been"],
+        ["be"]
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 2: Renewable Energy and Rural Development – Part 2
+// =========================================================
+{
+  id: 't2',
+  num: 2,
+  title: "Renewable Energy and Rural Development – Part 2",
+  blocks: [
+    {
+      type: 'reading',
+      title: "The carbon footprint",
+      html: `<p>As we need more and more energy, it is very important to choose sources that have less negative impact on the environment. As CO<sub>2</sub> is one of the most important greenhouse gases, the negative impact of our activities is usually measured by the amount of carbon dioxide we emit, which is called our carbon footprint.</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.95rem; line-height:1.7;">
+<strong>to measure</strong> &ndash; to calculate the size of sg<br>
+<strong>amount</strong> &ndash; quantity, number<br>
+<strong>to emit</strong> &ndash; to let out, to release
+</p>`
+    },
+    {
+  type: 'p',
+  html: `
+    <p style="margin:12px 0 16px;">
+      <span style="color:var(--red); font-weight:600;">
+        Watch this video that explains the meaning of the carbon footprint:
+      </span>
+    </p>
+
+    <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+      <iframe
+        src="https://www.youtube.com/embed/8q7_aV8eLUE"
+        title="What is a carbon footprint?"
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  `
+},
+    {
+      type: 'reading',
+      title: "Benefits of Renewable Energy Use",
+      html: `<p>Renewable energy &ndash; wind, solar, geothermal, hydroelectric, and biomass &ndash; provides a lot of benefits for our climate, our health, and our economy.</p>
+<p>Human activity is overloading our atmosphere with carbon dioxide and other greenhouse gas emissions, which trap heat, steadily drive up the planet’s temperature, and create significant and harmful impacts on our health, our environment, and our climate.</p>
+<p>Electricity production accounts for more than one-third of U.S. greenhouse gas emissions, with the majority generated by coal-fired power plants, which produce approximately 25 percent of total U.S. greenhouse gas emissions; natural gas-fired power plants produce 6 percent of total emissions. In contrast, most renewable energy sources produce little to no greenhouse gas emissions.</p>
+<p>Generating electricity from renewable energy rather than fossil fuels offers significant public health benefits. Replacing fossil fuels with renewable energy has been found to reduce premature mortality and lost workdays, and it reduces overall health care costs.</p>
+<p>Compared with fossil fuel technologies, which are typically mechanized and capital intensive, the renewable energy industry is more labor-intensive. This means that, on average, more jobs are created for each unit of electricity generated from renewable sources than from fossil fuels.</p>
+<p>While renewable facilities require upfront investments to build, once built they operate at very low cost and, for most technologies, the fuel is free. As a result, renewable energy prices are relatively stable over time. In contrast, fossil fuel prices can vary dramatically and are prone to substantial price swings.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://www.ucsusa.org/clean_energy/our-energy-choices/renewable-energy/public-benefits-of-renewable.html" target="_blank">Union of Concerned Scientists</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words from the text to check in a dictionary:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">benefit</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">economy</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to trap heat</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to account for 30 percent</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">majority</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">power plant</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">approximately</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">public health</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to replace sg with sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">capital</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">labour</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">on average</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to require</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">investment</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to operate</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">cost</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to vary dramatically</span>
+</div>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty2',
+      prompt: 'Watch this video: What is the story of Gratiot County? Summarize it in 5 sentences.',
+      video: { src: 'https://www.youtube.com/embed/lWUaE-Oaek8', title: 'What is the story of Gratiot County?' }
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't2ex1',
+      tag: '2.1',
+      title: "Are these sentences true or false on the basis of the video?",
+      instr: "Decide whether each sentence is true or false according to the carbon footprint video.",
+      qs: [
+        { text: "Your carbon footprint is a mark you leave upon the environment with every action that releases carbon dioxide and other harmful gases.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Burning fossil fuels causes harmful greenhouse gases.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The more fuel is used, the smaller the carbon footprint will be.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "You have no carbon footprint when you brush your teeth.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "You can reduce your carbon footprint by choosing less polluting options.", options: ["true", "false"], suffix: "", answer: "true" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't2ex2',
+      tag: '2.2',
+      title: "Match the words to make phrases",
+      instr: "Match the words to form correct phrases.",
+      leftLabel: "Start",
+      rightLabel: "End",
+      pairs: [
+        { desc: "climate", key: "change", label: "change" },
+        { desc: "to reduce", key: "footprint", label: "your carbon footprint" },
+        { desc: "to release harmful", key: "gases", label: "gases" },
+        { desc: "to emit carbon", key: "dioxide", label: "dioxide" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't2ex3',
+      tag: '2.3',
+      title: "Questions about paragraph contents",
+      instr: "There are six paragraphs in the previous text. Answer the questions about their contents.",
+      qs: [
+        { text: "Which paragraph is about the health benefits of renewable energy?", options: ["paragraph 1", "paragraph 4"], suffix: "", answer: "paragraph 4" },
+        { text: "Which paragraphs are about the environmental benefits of renewable energy?", options: ["paragraphs 2 and 3", "paragraphs 4 and 5"], suffix: "", answer: "paragraphs 2 and 3" },
+        { text: "Which paragraphs are about the economic benefits of renewable energy?", options: ["paragraphs 2 and 4", "paragraphs 5 and 6"], suffix: "", answer: "paragraphs 5 and 6" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't2ex4',
+      tag: '2.4',
+      title: "Choose the best answer on the basis of the text",
+      instr: "Choose the best answer on the basis of the text.",
+      qs: [
+        { text: "Renewable energy has", options: ["a lot of benefits.", "very few benefits."], suffix: "", answer: "a lot of benefits." },
+        { text: "Carbon dioxide is a", options: ["greenhouse gas.", "renewable gas."], suffix: "", answer: "greenhouse gas." },
+        { text: "Electricity generation", options: ["reduces greenhouse gas emissions by one-third in the US.", "is responsible for more than 1/3 of greenhouse gas emissions in the US."], suffix: "", answer: "is responsible for more than 1/3 of greenhouse gas emissions in the US." },
+        { text: "Most of the energy in the US is", options: ["generated by coal-fired power plants.", "natural gas-fired power plants."], suffix: "", answer: "generated by coal-fired power plants." },
+        { text: "Premature mortality means", options: ["early births.", "early deaths."], suffix: "", answer: "early deaths." },
+        { text: "Renewable energy facilities (e.g. wind farms, solar panels) are expensive", options: ["to build.", "to use."], suffix: "", answer: "to build."},
+        { text: "Renewable energy facilities are cheap", options: ["to build.", "to use."], suffix: "", answer: "to use."}
+    ]
+    },
+    {
+      type: 'match',
+      id: 't2ex5',
+      tag: '2.5',
+      title: "Match the words in bold with their meanings",
+      instr: "Match each word to its meaning based on the sentences in the text.",
+      leftLabel: "Word",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "emit (Coal-fired power plants emit...)", key: "emit", label: "release, let out" },
+        { desc: "trap (Greenhouse gases trap heat...)", key: "trap", label: "capture, catch" },
+        { desc: "approximately (account for approximately 5%...)", key: "approx", label: "about" },
+        { desc: "labour-intensive (industry is labour-intensive...)", key: "labour", label: "needs a lot of workers" },
+        { desc: "upfront (require upfront investments...)", key: "upfront", label: "in advance, at the beginning" },
+        { desc: "operate (wind farms operate at very low costs...)", key: "operate", label: "work" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't2ex6',
+      tag: '2.6',
+      title: "Which type of energy source do the following refer to?",
+      instr: "Which type of energy source do the following statements refer to?",
+      qs: [
+        { text: "They account for the majority of greenhouse gas emissions.", options: ["fossil fuels", "renewable energy sources"], suffix: "", answer: "fossil fuels" },
+        { text: "They can reduce health care costs.", options: ["fossil fuels", "renewable energy sources"], suffix: "", answer: "renewable energy sources" },
+        { text: "They are more capital intensive.", options: ["fossil fuels", "renewable energy sources"], suffix: "", answer: "fossil fuels" },
+        { text: "They are less labour-intensive.", options: ["fossil fuels", "renewable energy sources"], suffix: "", answer: "fossil fuels" },
+        { text: "Their prices may change dramatically.", options: ["fossil fuels", "renewable energy sources"], suffix: "", answer: "fossil fuels" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 3: Renewable Energy and Rural Development – Part 3
+// =========================================================
+{
+  id: 't3',
+  num: 3,
+  title: "Renewable Energy and Rural Development – Part 3",
+  blocks: [
+    {
+      type: 'p',
+      html: "Check the meanings of the following words and phrases in your dictionary: lease payments, manufacturing, installation, maintenance, property tax, construction, income tax."
+    },
+    {
+      type: 'reading',
+      title: "Economic benefits of using renewable energy sources",
+      html: `<p><strong>1.</strong> As it is labour-intensive, more jobs are created for each unit of electricity generated from renewable sources than from fossil fuels. For example, jobs in the wind energy industry include the following areas: manufacturing, project development, construction, installation, operations, maintenance, transportation, logistics, financial, legal and consulting services.</p>
+<p><strong>2.</strong> Renewable energy businesses use primarily local workers, so they support local development, which is particularly important in disadvantaged rural areas.</p>
+<p><strong>3.</strong> A rise in the number of jobs has a positive economic effect on households and businesses. In a community, even businesses unrelated to the renewable energy industry can benefit from the positive economic impact, since people with higher incomes spend more on other products and services.</p>
+<p><strong>4.</strong> Local governments get money from renewable energy businesses in different forms: property and income taxes, lease payments (e.g. from wind energy businesses for using the land).</p>
+<p><strong>5.</strong> Energy prices become more stable, as the price of locally generated energy is not influenced by dramatic changes in global demand. Furthermore, the cost of generating energy from renewable sources is declining steadily, so it will be cheaper and cheaper.</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.95rem; line-height:1.7;">
+<strong>manufacturing</strong> &ndash; making, producing<br>
+<strong>construction</strong> &ndash; building<br>
+<strong>installation</strong> &ndash; putting in place and making ready for use<br>
+<strong>maintenance</strong> &ndash; keeping in good condition<br>
+<strong>property tax</strong> &ndash; tax on buildings or land<br>
+<strong>lease payments</strong> &ndash; money paid for using sg (without buying it)
+</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words and phrases for this topic:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">manufacturing</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">construction</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">installation</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">operation</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">maintenance</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">disadvantaged</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">rural area</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to have a positive / negative effect / impact on sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">household</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">community</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">local government / local authorities</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">property tax</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">income tax</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to lease sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">lease payments</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">stable prices</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to decline</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">declining costs</span>
+</div>`
+    },
+    {
+      type: 'p',
+      html: `<h3 style="font-family:'Poppins',sans-serif; color:var(--ink); font-size:1.22rem; margin:28px 0 10px; text-transform:uppercase; letter-spacing:0.04em; border-bottom:2px solid var(--red-mid); padding-bottom:6px;">Economic vs Economical</h3>
+<p>Many people mix up 'economic' and 'economical'. But these words have different meanings. Look at these two sentences:</p>
+<p style="font-size:1.02rem; margin:8px 0;"><em>The country's economic situation is almost the same as last year.</em><br><em>LED lamps are more economical than neon lamps.</em></p>
+<p><strong>'economic'</strong> is always about something that is connected to the economy, while <strong>'economical'</strong> means cheap, not wasting money or energy.</p>
+<p style="margin-top:12px;"><strong>Some more examples:</strong></p>
+<ul style="margin:8px 0 16px 22px; padding:0; line-height:1.9;">
+  <li>The new law may cause economic disaster in the country.</li>
+  <li>The country's economic growth slowed down in 2013.</li>
+  <li>The most economical way to see the Amazon River is by air.</li>
+  <li>Hybrid cars are more economical.</li>
+</ul>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">The following words are connected to jobs:</p>
+<p style="margin:0; font-size:0.95rem; line-height:1.8;">
+<strong>to employ</strong> &ndash; to give somebody a job<br>
+<strong>an employee</strong> &ndash; a worker<br>
+<strong>an employer</strong> &ndash; a company who gives jobs to people<br>
+<strong>unemployment</strong> &ndash; a situation when some people don't have jobs<br>
+<strong>labour</strong> &ndash; workforce, workers; work<br>
+<strong>wage</strong> &ndash; money that a person earns, usually according to how many hours or days they work each week<br>
+<strong>salary</strong> &ndash; money that a person earns each month or year
+</p>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty3',
+      prompt: 'Watch this video: What is the story of Goldendale? Summarize it in 5 sentences.',
+      video: { src: 'https://www.youtube.com/embed/-2-phLM-ALA', title: 'What is the story of Goldendale?' }
+    }
+  ],
+  exercises: [
+    {
+      type: 'cloze',
+      id: 't3ex1',
+      tag: '3.1',
+      title: "Fill in the gaps with the most suitable words",
+      instr: "Now, fill in the gaps with the most suitable words from the list. The chosen word should mean the same as the one in brackets.",
+      lines: [
+        "This car {0} company sold over 200,000 cars last year. (making)",
+        "The local government spends a lot of money on road {1}. (building)",
+        "Both the price of a solar panel and the cost of its {2} are high. (putting in place and making it ready for use)",
+        "Car {3} tasks in winter include installing your winter tires, checking your battery and buying a de-icer. (keeping in good condition)",
+        "How much {4} did you pay in 2014? (part of your salary paid to the government)",
+        "Landowners have to pay a {5} based on the value of their lands every year. (part of the value of a building or land paid to the government)",
+        "Wind energy businesses pay high amounts of {6} to farmers whose lands they use to operate their wind mills. (money paid for using something without buying it)"
+      ],
+      answers: [
+        ["manufacturing"],
+        ["construction"],
+        ["installation"],
+        ["maintenance"],
+        ["income tax"],
+        ["property tax"],
+        ["lease payments"]
+      ]
+    },
+    {
+      type: 'match',
+      id: 't3ex2',
+      tag: '3.2',
+      title: "Match the sentence halves",
+      instr: "Match the sentence halves.",
+      leftLabel: "Beginning",
+      rightLabel: "Ending",
+      pairs: [
+        { desc: "Renewable energy generation is labour-intensive", key: "jobs", label: "so it creates more jobs." },
+        { desc: "Renewable energy businesses employ local people", key: "contrib", label: "so they contribute to the development of local communities." },
+        { desc: "Renewable energy businesses pay", key: "tax", label: "income taxes and property taxes to local authorities." },
+        { desc: "Wind farms and solar parks", key: "lease", label: "lease payments to landowners." },
+        { desc: "The price of renewable energy is more stable", key: "stable", label: "as it is not influenced by global demand changes." }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't3ex3',
+      tag: '3.3',
+      title: "Decide which one is correct: economic or economical",
+      instr: "Decide which one is correct.",
+      qs: [
+        { text: "Their heating system is more", options: ["economic", "economical"], suffix: "than ours.", answer: "economical" },
+        { text: "The majority of the population are already experiencing the results of the", options: ["economic", "economical"], suffix: "reforms.", answer: "economic" },
+        { text: "The bicycle is more", options: ["economic", "economical"], suffix: "and healthier than the car.", answer: "economical" },
+        { text: "Cars have become more", options: ["economic", "economical"], suffix: "in the past few years.", answer: "economical" },
+        { text: "There was a drop in the unemployment rate due to", options: ["economic", "economical"], suffix: "development.", answer: "economic" },
+        { text: "Try to be", options: ["economic", "economical"], suffix: "with the water. We only have 4 litres left.", answer: "economical" },
+        { text: "Most of the shops in our town closed down during the", options: ["economic", "economical"], suffix: "crisis.", answer: "economic" },
+        { text: "They want to buy a small,", options: ["economic", "economical"], suffix: "car.", answer: "economical" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't3ex4',
+      tag: '3.4',
+      title: "Match the words with their meanings",
+      instr: "Match the words with their meanings.",
+      leftLabel: "Word",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "revenue", key: "rev", label: "all the money a company gets during a specific period" },
+        { desc: "to pay off", key: "pay", label: "to be advantageous, to have benefits" },
+        { desc: "tax", key: "tax", label: "money that you have to pay to the government or other authorities" },
+        { desc: "cost", key: "cost", label: "the money needed to pay for doing something" }
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't3ex5',
+      tag: '3.5',
+      title: "Fill in the gaps with the correct jobs words",
+      instr: "Now, fill in the gaps with the correct words in the sentences below. Don't forget to use them in the correct forms.",
+      lines: [
+        "The biomass power plant {0} 320 people.",
+        "All the workers got their {1} at the end of the week.",
+        "As the company had a very successful year, the wind construction managers' {2} was raised.",
+        "SolarFuture, a solar energy {3} expects to see a dramatic rise in the use of solar energy in the following ten years.",
+        "The rate of {4} decreased after the wood pellet manufacturing plant was built.",
+        "People living in rural, agricultural areas are typically disadvantaged in the {5} market.",
+        "At the moment, there are approximately 3000 {6} working in the wind farm construction sector."
+      ],
+      answers: [
+        ["employs"],
+        ["wages"],
+        ["salaries"],
+        ["employer"],
+        ["unemployment"],
+        ["labour"],
+        ["employees"]
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 4: Photovoltaic Energy – Part 1
+// =========================================================
+{
+  id: 't4',
+  num: 4,
+  title: "Photovoltaic Energy – Part 1",
+  blocks: [
+    {
+      type: 'reading',
+      title: "Interesting Facts About The Sun",
+      html: `<p>&bull; In a single day, the Sun provides about 300 BTUs of heat per square foot of the Earth’s surface.</p>
+<p>&bull; The amount of solar energy that strikes the Earth in one hour is more than enough to provide all of the Earth’s energy needs for a complete year.</p>
+<p>&bull; Approximately 50% of the sun’s energy is absorbed by the Earth’s surface, while another 30% is reflected back from the Earth’s surface.</p>
+<p>&bull; Depending on where you are in the world, and the angle of the terrain, about 1,000 watts of solar energy reaches the Earth’s surface per hour per square meter.</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.9rem; line-height:1.7;">
+<strong>1 BTU (British Thermal Unit)</strong> &ndash; a traditional unit of work equal to about 1055 joules<br>
+<strong>1 foot</strong> &ndash; 30.48 centimetres<br>
+<strong>to absorb</strong> &ndash; to take in<br>
+<strong>surface</strong> &ndash; the top layer of something<br>
+<strong>to reflect</strong> &ndash; the light shines back off something<br>
+<strong>angle</strong> &ndash; the direction from which something comes (It is measured in degrees.)<br>
+<strong>terrain</strong> &ndash; an area of land with a particular surface
+</p>`
+    },
+    {
+      type: 'reading',
+      title: "General Solar Energy Facts",
+      html: `<p>&bull; Solar energy is healthier for the environment than traditional fossil related forms of energy.</p>
+<p>&bull; Solar energy has many positive uses, such as the production of electricity through photovoltaic cells, and the direct heating of water for a variety of other applications.</p>
+<p>&bull; Solar energy can also be used to heat swimming pools, to power cars, for attic fans, calculators and other small appliances. It produces lighting for indoors and outdoors. You can even cook food with solar energy.</p>
+<p>&bull; Solar energy is becoming more and more popular. The worldwide demand for solar energy is currently much greater than the amount we have been able to supply.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://www.solarenergy-facts.org/" target="_blank">http://www.solarenergy-facts.org/</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.9rem; line-height:1.7;">
+<strong>photovoltaic (PV) cell</strong> &ndash; equipment that changes light into electricity<br>
+<strong>a variety of sg</strong> &ndash; a number of different things<br>
+<strong>application</strong> &ndash; use<br>
+<strong>to power</strong> &ndash; to give power to a machine or vehicle<br>
+<strong>attic</strong> &ndash; the room directly under the roof of a house<br>
+<strong>fan</strong> &ndash; machine that turns the air to make it less hot<br>
+<strong>appliance</strong> &ndash; machine in a home, e.g. coffee maker<br>
+<strong>demand</strong> &ndash; all the things people want to buy<br>
+<strong>supply</strong> &ndash; all the things that are available to buy or use
+</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words from the text:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to strike</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to provide</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">square metre</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">surface</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to absorb</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to reflect back</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">angle</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">terrain</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to convert sg into sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to power sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">appliance</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to supply</span>
+</div>`
+    },
+    {
+      type: 'reading',
+      title: "Benefits of Solar Panel Electric Power Systems for Homes",
+      html: `<p>If you like the thought of contributing to the efforts of making the earth a better place to live, or if you like money, you’ll love solar energy. There are a myriad of great reasons to install a photovoltaic solar power generation system in your home or commercial building. Here are a few:</p>
+<p>&bull; A solar energy system adds to your property value.</p>
+<p>&bull; Home based solar power is a quiet, nearly maintenance free, continuous source of electricity.</p>
+<p>&bull; Solar electric systems reduce pollution and CO2 emissions by generating electrical power using radiant sunlight that can replace electricity that comes from coal-fired electrical plants.</p>
+<p>&bull; Many states including California, Massachusetts, New Jersey, Maryland, Texas and Arizona offer $0 down installation plans that immediately lower your electric bill and cost nothing to install or maintain.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://solarenergy.com/" target="_blank">http://solarenergy.com/</a></p>`
+    },
+    {
+      type: 'reading',
+      title: "Cypress Creek Renewables Plans $12 Million Solar Project In Saluda County, South Carolina",
+      html: `<p style="font-size:0.88rem; color:var(--ink-faint); margin-bottom:8px;">Area Development News Desk &ndash; January 12, 2016</p>
+<p>Cypress Creek Renewables, a company that specializes in the ownership and development of long-term solar energy projects, has taken first steps toward investing $12 million in solar energy projects in Saluda County, South Carolina.</p>
+<p>The projects, a nine-megawatt facility located off of S.C. Highway 121 in Saluda and a four-megawatt facility located off of Columbia Highway in Saluda, are expected to be fully operational by the end of 2016. One megawatt of solar energy is enough to provide inexpensive, secure, clean energy to approximately 200 South Carolina homes.</p>
+<p>“Local solar projects help to grow the economy by providing clean, renewable energy for homes and businesses. Working in partnership with our utility partners, local leaders, and the state of South Carolina, gives us the opportunity to help build an energy-independent future,” said Cypress Creek Renewables CEO Matthew McGovern.</p>
+<p>“It’s very exciting to be part of projects like these that are helping to reshape South Carolina’s energy future. This would not be possible without the support of the local community and all of our development partners,” said Southern Current, LLC Principal/Chief Development Officer Paul Fleury.</p>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty4',
+      prompt: 'Some scientists think that installing a lot of solar panels in the Sahara desert could provide clean energy for the whole world. Nobody would need any fossil fuels. What is your opinion? Give reasons. (Read more: <a href="http://www.bbc.com/news/science-environment-34987467" target="_blank">BBC News</a>)'
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't4ex1',
+      tag: '4.1',
+      title: "Complete the sentences with the correct words",
+      instr: "Read the text again, and then complete the sentences with the correct words.",
+      qs: [
+        { text: "The amount of solar energy that strikes the Earth in one ... is more than enough to provide all of the Earth’s energy needs for a complete year.", options: ["hour", "year"], suffix: "", answer: "hour" },
+        { text: "Solar energy is less … than fossil fuels.", options: ["disadvantaged", "harmful"], suffix: "", answer: "harmful" },
+        { text: "The amount of solar energy that reaches the Earth’s surface per hour per square metre depends on where you are in the world and the ... of the terrain.", options: ["angle", "degree"], suffix: "", answer: "angle" },
+        { text: "PV … convert light into electricity.", options: ["cells", "cell"], suffix: "", answer: "cells" },
+        { text: "Solar energy can be used to heat water and provide electricity for your … .", options: ["applications", "appliances"], suffix: "", answer: "appliances" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't4ex2',
+      tag: '4.2',
+      title: "Match the words with their meanings",
+      instr: "Match the words with their meanings. The text can help you.",
+      leftLabel: "Word / Phrase",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "to contribute to sg", key: "contrib", label: "to help achieve a goal" },
+        { desc: "effort", key: "effort", label: "hard work that you do in order to achieve a goal" },
+        { desc: "property", key: "prop", label: "house or land" },
+        { desc: "maintenance free", key: "maint", label: "no money is needed to keep it in good, working condition" },
+        { desc: "$0 down installation plan", key: "plan", label: "when you buy a solar system on credit and no money has to be paid before installation" }
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't4ex3',
+      tag: '4.3',
+      title: "Complete sentences with words from the box",
+      instr: "Check the meanings of these words if necessary. Then, complete the sentences with the most suitable words from the box.",
+      bank: ["value", "PV", "nearly", "contribute", "generate", "valuable"],
+      lines: [
+        "If you want to {0} to environmental protection, you should install PV panels in your home.",
+        "Solar energy systems add to the {1} of a property, which means they will become more expensive.",
+        "Solar electric systems are absolutely quiet and {2} no money has to be spent on maintenance.",
+        "Solar energy systems use radiant sunlight to {3} electricity.",
+        "If you choose a $0 down installation plan, it means you don't have to pay any money before {4} panels are installed."
+      ],
+      answers: [
+        ["contribute"],
+        ["value"],
+        ["nearly"],
+        ["generate"],
+        ["PV"]
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't4ex4',
+      tag: '4.4',
+      title: "Choose the best answer on the basis of the news story",
+      instr: "Choose the best answer on the basis of the Cypress Creek news story.",
+      qs: [
+        { text: "Cypress Creek Renewables has … solar projects in South Carolina.", options: ["invested a lot of money in", "decided to put $12 million into", "spent $12 million on"], suffix: "", answer: "decided to put $12 million into" },
+        { text: "The two planned solar parks will … later this year.", options: ["start operation", "close down", "be partly operational"], suffix: "", answer: "start operation" },
+        { text: "The homes and businesses of … will get clean, renewable energy.", options: ["the county", "the country", "Cypress Creek"], suffix: "", answer: "the county" },
+        { text: "Cypress Creek Renewables works in partnership with …, local leaders, and the State of South Carolina.", options: ["useful partners", "utilized companies", "companies that sell electricity, gas to the public"], suffix: "", answer: "companies that sell electricity, gas to the public" },
+        { text: "Projects like these help … the state's energy industry.", options: ["shape", "modification", "transform"], suffix: "", answer: "transform" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 5: Photovoltaic Energy – Part 2
+// =========================================================
+{
+  id: 't5',
+  num: 5,
+  title: "Photovoltaic Energy – Part 2",
+  blocks: [
+    {
+      type: 'reading',
+      title: "Solar energy",
+      html: `<p>Solar power is energy from the sun that is converted into thermal or electrical energy. Solar energy is the cleanest and most abundant renewable energy source available, and the U.S. has some of the richest solar resources in the world. Modern technology can harness this energy for a variety of uses, including generating electricity, providing light or a comfortable interior environment, and heating water for domestic, commercial, or industrial use.</p>
+<p>There are several ways to harness solar energy: photovoltaics (also called solar electric), solar heating & cooling, concentrating solar power (CSP), and passive solar.</p>
+<p>The first three are active solar systems, which use mechanical or electrical devices that convert the sun's heat or light to another form of usable energy. Passive solar buildings are designed and oriented to collect, store, and distribute the heat energy from sunlight to maintain the comfort of the occupants without the use of moving parts or electronics.</p>
+<p>Solar energy is a flexible energy technology: solar power plants can be built as distributed generation (located at or near the point of use) or as a central-station, utility-scale solar power plant (similar to traditional power plants). Some utility-scale solar plants can store the energy they produce for use after the sun sets.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://www.seia.org/about/solar-energy" target="_blank">Solar Energy Industries Association (SEIA)</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words to check in your dictionary:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to convert sg into sg</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to harness</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to generate electricity</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">domestic</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">commercial</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">industrial</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">device</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to orient a building</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to store heat</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to distribute</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">(public) utility company</span>
+</div>`
+    },
+    {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch this video about how PV panels work:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe
+            src="https://www.youtube.com/embed/f8_NdUb8sjc"
+            title="How PV panels work"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
+      type: 'over2you',
+      id: 'oty5',
+      prompt: 'What is a feed-in tariff? It was mentioned at the end of the video.'
+    }
+  ],
+  exercises: [
+    {
+      type: 'match',
+      id: 't5ex1',
+      tag: '5.1',
+      title: "Match the technologies with their descriptions",
+      instr: "Match the technologies with their descriptions using the text.",
+      leftLabel: "Technology",
+      rightLabel: "Description",
+      pairs: [
+        { desc: "SHC (solar heating & cooling)", key: "shc", label: "collect the thermal energy from the sun and use this heat to provide hot water, space heating, cooling, and pool heating" },
+        { desc: "PV (photovoltaics)", key: "pv", label: "converts light into electricity with the help of certain materials that can absorb photons and release electrons" },
+        { desc: "PST (passive solar techniques)", key: "pst", label: "choosing special building materials to collect, store and distribute heat, and orienting buildings efficiently" },
+        { desc: "CSP (concentrating solar power)", key: "csp", label: "use mirrors and lenses to concentrate sunlight into heat to create steam that drives turbines" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't5ex2',
+      tag: '5.2',
+      title: "Match the words with their meanings",
+      instr: "Match the words with their meanings. If necessary, look them up in your dictionary.",
+      leftLabel: "Abbreviation / Word",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "PV", key: "pv", label: "photovoltaic" },
+        { desc: "DC", key: "dc", label: "direct current" },
+        { desc: "AC", key: "ac", label: "alternating current" },
+        { desc: "grid", key: "grid", label: "network of lines that distribute electricity from power stations to people" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't5ex3',
+      tag: '5.3',
+      title: "Decide whether the statements are true or false",
+      instr: "Watch the video again, and decide whether the statements are true or false.",
+      qs: [
+        { text: "PV panels don't work on cloudy days.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The PV panels create direct current.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "An inverter converts the AC into DC.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "We use alternating current in our homes.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Your everyday appliances are connected to the mains consumer unit.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "At night, your home gets electricity from the grid.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Any solar power that you don't use is lost.", options: ["true", "false"], suffix: "", answer: "false" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't5ex4',
+      tag: '5.4',
+      title: "Order of electricity flow from sun to home",
+      instr: "Select the correct component in the sequence of solar electricity generation.",
+      qs: [
+        { text: "Step 1 in the solar energy flow is the", options: ["sun", "PV panel", "inverter"], suffix: ".", answer: "sun" },
+        { text: "Step 2 is the", options: ["PV panel", "inverter", "generation meter"], suffix: ".", answer: "PV panel" },
+        { text: "Step 3 is the", options: ["inverter", "mains consumer unit", "appliance"], suffix: ".", answer: "inverter" },
+        { text: "Step 4 is the", options: ["generation meter", "mains consumer unit", "PV panel"], suffix: ".", answer: "generation meter" },
+        { text: "Step 5 is the", options: ["mains consumer unit", "appliance", "inverter"], suffix: ".", answer: "mains consumer unit" },
+        { text: "Step 6 is the household", options: ["appliance", "PV panel", "generation meter"], suffix: ".", answer: "appliance" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 6: Photovoltaic Energy – Part 3
+// =========================================================
+{
+  id: 't6',
+  num: 6,
+  title: "Photovoltaic Energy – Part 3",
+  blocks: [
+    {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch this video about PV panels:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe
+            src="https://www.youtube.com/embed/FIXQlATFELI"
+            title="PV panels"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
+      type: 'reading',
+      title: "Photovoltaic Cells: Converting Photons into Electrons",
+      html: `<p>The solar cells that you see on calculators and satellites are also called photovoltaic (PV) cells, which as the name implies (photo meaning "light" and voltaic meaning "electricity"), convert sunlight directly into electricity. A module is a group of cells connected electrically and packaged into a frame (more commonly known as a solar panel), which can then be grouped into larger solar arrays, like the one operating at Nellis Air Force Base in Nevada.</p>
+<p>Photovoltaic cells are made of special materials called semiconductors such as silicon, which is currently used most commonly. Basically, when light strikes the cell, a certain portion of it is absorbed within the semiconductor material. This means that the energy of the absorbed light is transferred to the semiconductor. The energy knocks electrons loose, allowing them to flow freely.</p>
+<p>PV cells also all have one or more electric field that acts to force electrons freed by light absorption to flow in a certain direction. This flow of electrons is a current, and by placing metal contacts on the top and bottom of the PV cell, we can draw that current off for external use, say, to power a calculator. This current, together with the cell's voltage (which is a result of its built-in electric field or fields), defines the power (or wattage) that the solar cell can produce.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://science.howstuffworks.com/environmental/energy/solar-cell1.htm" target="_blank">HowStuffWorks</a></p>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty6',
+      prompt: 'The video describes where and how to install solar panels if you want to use solar energy in your home. Watch the video, and tell us which option would be the best for your home and why (taking roof size, orientation, costs and weather into account).',
+      video: { src: 'https://www.youtube.com/embed/Ge_lWfuLbPU', title: 'How to install solar panels for your home' }
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't6ex1',
+      tag: '6.1',
+      title: "Decide whether the statements are true or false (Video)",
+      instr: "Watch the video about PV panels, and decide whether the statements are true or false.",
+      qs: [
+        { text: "The sun's energy can be converted into electricity in different ways.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Recent advancements in technology have reduced the efficiency of PV panels.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Photons are very small 'packets' of energy that make up light.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "A cell contains several panels.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The positive and the negative layer of a cell create an electric field.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "When a lot of panels are connected, they are called a solar array.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "A solar array on the roof of a warehouse can supply electricity to two or three homes.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "PV panels have a lot of advantages, such as no emissions and no noise.", options: ["true", "false"], suffix: "", answer: "true" }
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't6ex2',
+      tag: '6.2',
+      title: "What is the word or phrase defined?",
+      instr: "Complete the definition sentences using the list: solar array, semi-conductor, photon, electric current, absorbed, electrons.",
+      lines: [
+        "A {0} is a number of solar panels connected into one system.",
+        "A material that allows electricity to move through it easily when its temperature increases is called {1}.",
+        "The smallest unit of light is a {2}.",
+        "The movement of electricity through a wire is an {3}.",
+        "When photons strike a solar panel, only a part of them will be taken in, or in other words, {4}.",
+        "When photons strike a PV cell, their energy frees some {5} in the semi-conductor."
+      ],
+      answers: [
+        ["solar array"],
+        ["semi-conductor"],
+        ["photon"],
+        ["electric current"],
+        ["absorbed"],
+        ["electrons"]
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't6ex3',
+      tag: '6.3',
+      title: "Decide whether the statements are true or false (Text)",
+      instr: "Decide whether the statements are true or false according to the text.",
+      qs: [
+        { text: "A PV module is the same as a solar panel.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "A lot of PV modules grouped together are called a solar array.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "At the moment, silicon is not a popular semi-conductor.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The semi-conductor gets the energy of all the light that strikes the solar cell.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The energy of the light frees the electrons in the semi-conductor.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The electric field of the PV cell sends the electrons in a certain direction.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "If we put a metal thing on one side of the PV cell, we can use the electrons running in it.", options: ["true", "false"], suffix: "", answer: "false" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't6ex4',
+      tag: '6.4',
+      title: "Match the words with their meanings",
+      instr: "Match the words with their meanings.",
+      leftLabel: "Word",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "grid", key: "grid", label: "network of power lines that take electricity from the power station to people" },
+        { desc: "building-mounted", key: "mounted", label: "installed, put on a building" },
+        { desc: "(public) utility companies", key: "util", label: "electricity, water and gas companies" },
+        { desc: "ranch", key: "ranch", label: "farm" },
+        { desc: "via", key: "via", label: "through" },
+        { desc: "small-scale", key: "small", label: "including only a few things or people, limited in size" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 7: Biomass – Part 1
+// =========================================================
+{
+  id: 't7',
+  num: 7,
+  title: "Biomass – Part 1",
+  blocks: [
+    {
+      type: 'reading',
+      title: "Definition of biomass",
+      html: `<p>Biomass is any organic matter that is used as a source of energy. Organic matter comes from living organisms such as plants and animals, and contains organically produced carbon.</p>`
+    },
+    {
+      type: 'reading',
+      title: "What is biomass?",
+      html: `<p>To many people, the most familiar forms of renewable energy are the wind and the sun. But biomass (plant material and animal waste) is the oldest source of renewable energy, used since our ancestors learned the secret of fire.</p>
+<p>Biomass is a renewable energy source not only because the energy in it comes from the sun, but also because biomass can re-grow over a relatively short period of time compared with the hundreds of millions of years that it took for fossil fuels to form. Through the process of photosynthesis, chlorophyll in plants captures the sun's energy by converting carbon dioxide from the air and water from the ground into carbohydrates—complex compounds composed of carbon, hydrogen, and oxygen. When these carbohydrates are burned, they turn back into carbon dioxide and water and release the energy they captured from the sun.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://www.ucsusa.org/clean_energy/our-energy-choices/renewable-energy/how-biomass-energy-works.html" target="_blank">Union of Concerned Scientists</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.9rem; line-height:1.7;">
+<strong>ancestors</strong> &ndash; a person's relatives who lived a long time ago<br>
+<strong>to capture</strong> &ndash; to catch
+</p>`
+    },
+    {
+      type: 'reading',
+      title: "Sources of biomass",
+      html: `<p>The most common sources of biomass are:</p>
+<p>&bull; plants;<br>&bull; animals;<br>&bull; municipal solid waste.</p>
+<p><strong>Plants</strong><br>The energy industry uses different wood products, such as wood chips, saw dust, scrap wood and forest residues (dead trees, branches). Certain parts of agricultural crops are also used for energy generation. Dried vegetation like straw, dry leaves, corn stalks, and all kinds of crop residues are suitable for this purpose.</p>
+<p>However, there are also so called 'energy crops' that are grown specifically for use as fuel. They include fast growing trees, grasses and other non-woody energy crops, as well as aquatic plants such as algae and lake weeds.</p>
+<p><strong>Animals</strong><br>Many farm animals produce wastes which can be used as energy sources. Some examples are poultry litter, and animal manures and slurries.</p>
+<p><strong>Municipal solid waste (MSW)</strong><br>Municipal solid waste is commonly known as garbage (US) or rubbish (UK). It includes all kinds of everyday items that are thrown out by the public. It usually does not include industrial or agricultural wastes. MSW is generally collected in landfills. The rubbish is dumped into a hole or on the side of a hill, compacted by large machines, and then covered with a plastic sheet and several feet of dirt.</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words of this unit:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">wood chips</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">saw dust</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">scrap wood</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">forest residues</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">branch of a tree</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">agricultural crops</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">dried vegetation</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">straw</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">corn stalks</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">crop residues</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">non-woody energy crops</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">aquatic plants</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">algae</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">lake weeds</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">animal waste</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">poultry litter</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">manure</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">municipal solid waste (MSW)</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">landfill</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to dump</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">dirt</span>
+</div>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty7',
+      prompt: 'Why are trees renewable and why are coal and oil not?'
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't7ex1',
+      tag: '7.1',
+      title: "Which of these materials are considered organic matter?",
+      instr: "Select 'yes' or 'no' for each material.",
+      qs: [
+        { text: "wood", options: ["yes", "no"], suffix: "", answer: "yes" },
+        { text: "clean air", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "rocks", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "agricultural crops", options: ["yes", "no"], suffix: "", answer: "yes" },
+        { text: "animal waste", options: ["yes", "no"], suffix: "", answer: "yes" },
+        { text: "metals", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "pure water", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "glass", options: ["yes", "no"], suffix: "", answer: "no" },
+        { text: "dead leaves", options: ["yes", "no"], suffix: "", answer: "yes" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't7ex2',
+      tag: '7.2',
+      title: "Are these sentences true or false on the basis of the text?",
+      instr: "Decide whether each statement is true or false on the basis of the text.",
+      qs: [
+        { text: "Most people associate renewable energy with solar and wind energy.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Our ancestors think that biomass is the oldest source of renewable energy.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Plant material and animal waste re-grow faster than fossil fuels.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Fossil fuels were formed over a relatively short time.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The energy in organic matter comes from the sun.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "When biomass is burnt, it releases carbon dioxide.", options: ["true", "false"], suffix: "", answer: "true" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't7ex3',
+      tag: '7.3',
+      title: "Which category of biomass do these products belong to?",
+      instr: "Match the product with its biomass category.",
+      leftLabel: "Product",
+      rightLabel: "Category",
+      pairs: [
+        { desc: "Algae and lake weeds", key: "energy", label: "energy crops" },
+        { desc: "everyday rubbish", key: "msw", label: "municipal solid waste" },
+        { desc: "corn stalks and other crop residues", key: "agri", label: "agricultural crops" },
+        { desc: "animal manure", key: "manure", label: "animal waste" },
+        { desc: "forest residues such as dead trees and branches", key: "wood", label: "wood products" },
+        { desc: "poultry litter", key: "poultry", label: "animal waste (poultry)" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't7ex4',
+      tag: '7.4',
+      title: "Choose the correct answer",
+      instr: "Choose the correct answer based on the unit.",
+      qs: [
+        { text: "It … millions of years for fossil fuels to form in rock and earth.", options: ["makes", "takes", "take", "last"], suffix: "", answer: "takes" },
+        { text: "'I am not familiar with this source of renewable energy.' means the same as …", options: ["This source of renewable energy is not for my family.", "I don't know anything about this source of renewable energy.", "I have a good knowledge of this source of renewable energy."], suffix: "", answer: "I don't know anything about this source of renewable energy." },
+        { text: "Thousands of years ago, our … burned wood to make fire.", options: ["relative", "great-grandparents", "ancestors", "ancistors"], suffix: "", answer: "ancestors" },
+        { text: "Biomass can be re-grown in a … short time.", options: ["quite", "quiet", "related", "relatively"], suffix: "", answer: "relatively" },
+        { text: "Photosynthesis is a process used by plants to … light energy … chemical energy.", options: ["convert; to", "compare; into", "convert; into", "compare; to"], suffix: "", answer: "convert; into" },
+        { text: "When burning, biomass … the energy stored in it.", options: ["releases", "relases", "let", "allows"], suffix: "", answer: "releases" },
+        { text: "The most common sources of biomass are …", options: ["plants and animals.", "plants, animals and municipal liquid waste.", "plants and municipal solid waste.", "plants, animals and municipal solid waste."], suffix: "", answer: "plants, animals and municipal solid waste." },
+        { text: "Wood chips and saw dust are …", options: ["municipal solid waste.", "agricultural residues.", "wood products.", "forest residues."], suffix: "", answer: "wood products." },
+        { text: "Algae can be used …", options: ["for energy generation.", "to collect dried vegetation.", "to produce corn stalks.", "as crop residues."], suffix: "", answer: "for energy generation." },
+        { text: "Many farm animal wastes, such as …, can be used as energy sources.", options: ["poultry manures", "poultry slurry", "poultry litter", "poultry scraps"], suffix: "", answer: "poultry litter" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 8: Biomass – Part 2
+// =========================================================
+{
+  id: 't8',
+  num: 8,
+  title: "Biomass – Part 2",
+  blocks: [
+    {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch this video about biomass:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe
+            src="https://www.youtube.com/embed/dQ-cIVJuDks"
+            title="Biomass"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words to remember:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">biomass boiler</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">log</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to load</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">fully loaded</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">burn chamber</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">by-product</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">saw mill</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">wood processing</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">storage</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">calorific value</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to shred timber</span>
+</div>`
+    },
+    {
+      type: 'reading',
+      title: "How is biomass used?",
+      html: `<p>You can produce energy from biomass in different ways. You can use it directly to produce heat through combustion, or indirectly to convert it into various forms of biofuel.</p>
+<p><strong>Heat</strong><br>Heat can be used to provide hot water for households, or to heat individual buildings or several households through district heating.</p>
+<p>Heat can also be the source of electricity generation. Biomass can be burnt in biomass power plants, or in co-firing power plants. Co-firing means that two different materials are burnt at the same time. Biomass is usually added to coal, so no new plant has to be built to generate cleaner electricity.</p>
+<p><strong>Biofuels</strong><br>Biomass can be converted into different biofuels in three ways: thermal, chemical and biochemical conversion. The forms of these biofuels can be solid, liquid or gas. The most common examples are bioethanol, biodiesel, biogas and wood pellets.</p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.9rem; line-height:1.7;">
+<strong>combustion</strong> &ndash; burning<br>
+<strong>district heating</strong> &ndash; a system in which one boiler heats a large number of buildings by sending hot water through pipes<br>
+<strong>solid</strong> &ndash; hard, not having the form of a gas or a liquid<br>
+<strong>liquid</strong> &ndash; material that can flow (e.g. water)
+</p>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty8',
+      prompt: 'According to the video, biomass is carbon-neutral. What is your opinion? Give reasons and examples.'
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't8ex1',
+      tag: '8.1',
+      title: "Are these sentences true or false on the basis of the video?",
+      instr: "Now, read the sentences below. Are they true or false on the basis of the video?",
+      qs: [
+        { text: "Biomass can be processed into fuel or heat.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Biomass is a carbon-neutral fuel.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Biomass can support the rural economy.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "District heating can supply energy and hot water for one household.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Wood is the most common type of biomass fuel.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Wood logs are not easily available.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Wood pellets need less storage and have a higher calorific value than logs.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Biomass is a clean but not sustainable fuel source.", options: ["true", "false"], suffix: "", answer: "false" }
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't8ex2',
+      tag: '8.2',
+      title: "Fill in the gaps with the correct words from the video",
+      instr: "Watch the video again, and fill in the gaps with the correct words from the list.",
+      bank: ["wood", "18", "8", "inexpensive", "pellets", "automated", "storage", "expensive", "boiler", "boilers", "advantage"],
+      lines: [
+        "According to the video, the most common type of biomass fuel in the UK is {0}.",
+        "The three main forms of wood used in biomass {1} are logs, wood pellets and wood chips.",
+        "The main {2} to using logs in a boiler is that they are easily available.",
+        "A fully loaded burn chamber can burn for up to {3} hours when the system is in low demand.",
+        "Wood {4} are manufactured from by-products from saw mills and other wood-processing industries.",
+        "They need less {5} than logs or chips as they have a higher calorific value for the same volume.",
+        "Wood pellet boilers are generally fully {6}, with the pellets sucked by vacuum straight into the boiler from the store.",
+        "A screw-feed takes the chips from the store into the {7}.",
+        "The chip system is {8} to run."
+      ],
+      answers: [
+        ["wood"],
+        ["boilers"],
+        ["advantage"],
+        ["18"],
+        ["pellets"],
+        ["storage"],
+        ["automated"],
+        ["boiler"],
+        ["inexpensive"]
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't8ex3',
+      tag: '8.3',
+      title: "Decide if the statements are true on the basis of the text",
+      instr: "Decide if the following statements are true (T) or false (F) on the basis of the text.",
+      qs: [
+        { text: "In the United Kingdom, most biomass comes from wood.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "If you fill the burn chamber of a boiler with logs, you don't need to reload it for a day.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Logs need less storage than chips.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Both wood pellet and wood chip boilers can be fully automated.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Wood pellets are transported into the boiler by a screw-feed.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Wood chips are transported into the boiler by vacuum.", options: ["true", "false"], suffix: "", answer: "false" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't8ex4',
+      tag: '8.4',
+      title: "Choose the best answer on the basis of the text",
+      instr: "Choose the best answer.",
+      qs: [
+        { text: "Energy from biomass can be produced …", options: ["in three ways.", "directly to produce heat and indirectly to convert it into various forms of biofuel.", "through combustion.", "by converting it into a biofuel."], suffix: "", answer: "directly to produce heat and indirectly to convert it into various forms of biofuel." },
+        { text: "'Co-firing' means … .", options: ["firing something with biomass", "burning two different materials in the same power plant", "burning coal in a power plant", "burning something in a power plant"], suffix: "", answer: "burning two different materials in the same power plant" },
+        { text: "A boiler is a device that", options: ["heats water for cooking.", "heats water to heat a building.", "heats water to heat a building or buildings, and provide hot water for household use.", "burns biomass to generate electricity."], suffix: "", answer: "heats water to heat a building or buildings, and provide hot water for household use." },
+        { text: "Which one is true?", options: ["Biogas is liquid biofuel.", "Wood pellets are a common type of solid biofuel.", "Biodiesel is biomass in gaseous form.", "Bioethanol is an alcohol, and not a biofuel."], suffix: "", answer: "Wood pellets are a common type of solid biofuel." }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 9: Biomass – Part 3
+// =========================================================
+{
+  id: 't9',
+  num: 9,
+  title: "Biomass – Part 3",
+  blocks: [
+    {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch this video about biomass and how electricity is made from it:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe
+            src="https://www.youtube.com/embed/HZoPNJGi6ig"
+            title="Biomass and electricity generation"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
+      type: 'reading',
+      title: "How are pellets made?",
+      html: `<p>Pellet mills can produce pellets from saw dust, wood chips, scrap wood and even full trees. These different forms of wood are put through a chipper or a hammer mill, which breaks them down into a consistent smaller size. Afterwards, wood chips are fed through a dryer to remove the moisture content of the raw material, especially in case of freshly cut wood.</p>
+<p>After drying, the sawdust is pressed through dies at high pressure. A die is a metal container that gives sawdust the shape and diameter of a pellet. During this process, the sawdust gets very hot and releases its fibre that keeps the sawdust together.</p>
+<p>When the hot, shaped sawdust is coming out of the die, it is cut into pieces of a certain length. Then it is cooled in a cooling tower. This is when the pellets become hard. After cooling, they are stored in large silos, then put into plastic bags or sold in bulk.</p>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty9',
+      prompt: 'What makes algae an attractive source of biofuel? You can watch the following video about biofuels:',
+      video: { src: 'https://www.youtube.com/embed/-ck3FYVNl6s', title: 'Biofuels from algae' }
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't9ex1',
+      tag: '9.1',
+      title: "Are they true or false on the basis of the video?",
+      instr: "Read the sentences. Are they true or false on the basis of the video? Watch it again to decide.",
+      qs: [
+        { text: "The energy of the sun is absorbed by plants with photosynthesis, and released when they decompose or when they are burnt.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Plant waste from farms is collected and burnt to generate electricity.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Animal waste is collected in small tanks, called digesters.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Digesters are filled with bacteria that convert waste into methane gas.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Methane cannot be captured from landfills.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Biomass must be used carefully to prevent greenhouse gas emissions.", options: ["true", "false"], suffix: "", answer: "true" }
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't9ex2',
+      tag: '9.2',
+      title: "Steps of electricity generation",
+      instr: "Watch the video again, and complete the steps of electricity generation.",
+      lines: [
+        "1. The waste is burnt to {0} water.",
+        "2. The hot water creates {1}.",
+        "3. The {2} of the steam spins a turbine.",
+        "4. The turbine powers a {3}.",
+        "5. The {4} creates electricity."
+      ],
+      answers: [
+        ["heat"],
+        ["steam"],
+        ["pressure"],
+        ["generator"],
+        ["generator"]
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't9ex3',
+      tag: '9.3',
+      title: "Complete the text with the most suitable words",
+      instr: "Complete the text with the most suitable words from the list.",
+      bank: ["sugarcane", "fuel", "bioethanol", "pure", "sugar", "sweet", "transesterification", "Europe"],
+      lines: [
+        "Bioethanol is an alcohol made by fermentation, mostly from carbohydrates produced in {0} or starch crops such as corn, or {1}.",
+        "Ethanol can be used as a {2} for vehicles in its pure form, but it is usually used as a gasoline additive to increase octane and improve vehicle emissions.",
+        "{3} is widely used in the USA and in Brazil.",
+        "Biodiesel can be used as a fuel for vehicles in its {4} form, but it is usually used as a diesel additive to reduce levels of particulates, carbon monoxide, and hydrocarbons.",
+        "Biodiesel is produced from oils or fats using {5} and is the most common biofuel in {6}."
+      ],
+      answers: [
+        ["sugar"],
+        ["sugarcane"],
+        ["fuel"],
+        ["Bioethanol"],
+        ["pure"],
+        ["transesterification"],
+        ["Europe"]
+      ]
+    },
+    {
+      type: 'match',
+      id: 't9ex4',
+      tag: '9.4',
+      title: "Machine descriptions in a pellet plant",
+      instr: "Write the name of the machine that matches the description.",
+      leftLabel: "Description",
+      rightLabel: "Machine",
+      pairs: [
+        { desc: "It reduces the moisture content of the raw material", key: "dryer", label: "dryer" },
+        { desc: "It shapes saw dust into pellets", key: "die", label: "die" },
+        { desc: "It breaks wood down into smaller pieces", key: "mill", label: "chipper / hammer mill" },
+        { desc: "It reduces the temperature of the pellets", key: "tower", label: "cooling tower" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 10: Wind Energy – Part 1
+// =========================================================
+{
+  id: 't10',
+  num: 10,
+  title: "Wind Energy – Part 1",
+  blocks: [
+    {
+      type: 'reading',
+      title: "Wind Energy",
+      html: `<p>Wind power captures the natural wind in our atmosphere and converts it into mechanical energy, then electricity. People started using wind power centuries ago with windmills, which pumped water, ground grain, and did other work.</p>
+<p>Today's wind turbine is a highly evolved version of a windmill. Modern wind turbines harness wind's kinetic energy and convert it into electricity. Most wind turbines have three blades and sit atop a steel tubular tower, and they range in size from 80-foot-tall turbines that can power a single home to utility-scale turbines that are over 260 feet tall and power hundreds of homes.</p>
+<p>Wind is a type of renewable energy, and there are three major types of wind power, namely:</p>
+<p>&bull; <strong>Utility-scale wind</strong>, wind turbines larger than 100 kilowatts are developed with electricity delivered to the power grid and distributed to the end user by electric utilities or power system operators;<br>
+&bull; <strong>Distributed wind</strong>, which uses turbines of 100 kilowatts or smaller to directly power a home, farm or small business as its primary use;<br>
+&bull; <strong>Offshore wind</strong>, which are wind turbines erected in bodies of water around the world, but not yet in the United States.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://www.awea.org/" target="_blank">American Wind Energy Association (AWEA)</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words to look up in a dictionary if necessary:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">mechanical energy</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">kinetic energy</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">windmill</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">wind turbine</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to harness</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">blade</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">utility-scale wind power / big wind power</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">home-based wind power / distributed wind power</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">offshore wind power</span>
+</div>`
+    },
+    {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch this video about wind energy:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe
+            src="https://www.youtube.com/embed/niZ_cvu9Fts"
+            title="Wind energy"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
+      type: 'reading',
+      title: "How wind turbines work",
+      html: `<p>Wind turbine blades spin because of lift, the same force that allows airplanes to fly. If the blades are all oriented in the same direction, they will start to spin. The blades are attached to a hub, which spins as the blades turn. Most modern wind turbines have three blades. The blades and the hub together are called the rotor.</p>
+<p>As the rotor turns, it spins a drive shaft, which is connected to a generator inside the housing at the top of the tower. The housing is called the nacelle. The spinning generator produces electricity because it converts the mechanical energy of moving wind into electrical energy. Between the spinning rotor and the generator, there is usually a gearbox to help the generator spin fast enough to make electricity.</p>
+<p>The amount of electricity that a turbine is able to produce depends on the diameter of the rotor and the speed of the wind that propels the rotor. Wind turbines are often grouped together in wind farms to produce large amounts of electricity. Some wind farms have only a couple of wind turbines, but the largest wind farms are made up of hundreds and hundreds of wind turbines.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://learn.kidwind.org/" target="_blank">KidWind</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0; font-size:0.9rem; line-height:1.7;">
+<strong>to spin / to turn</strong> &ndash; to rotate<br>
+<strong>lift</strong> &ndash; aerodynamic upward/forward force<br>
+<strong>hub</strong> &ndash; central connection point of blades<br>
+<strong>rotor</strong> &ndash; blades + hub together<br>
+<strong>drive shaft</strong> &ndash; rotating rod connecting to generator<br>
+<strong>nacelle</strong> &ndash; housing at top of tower<br>
+<strong>gearbox</strong> &ndash; gear system increasing rotational speed
+</p>`
+    },
+    {
+      type: 'over2you',
+      id: 'oty10',
+      prompt: 'What can be the advantages of using wind turbines to generate electricity?'
+    }
+  ],
+  exercises: [
+    {
+      type: 'choice',
+      id: 't10ex1',
+      tag: '10.1',
+      title: "Choose the correct answer(s)",
+      instr: "Choose the correct answer based on the introductory text.",
+      qs: [
+        { text: "A wind turbine usually consists of", options: ["three blades and a tube-shaped tower", "three wings and a wooden pole"], suffix: "", answer: "three blades and a tube-shaped tower" },
+        { text: "Utility-scale wind farms deliver electricity", options: ["to the power grid and through the grid to utility companies", "directly to the end-user without any power lines"], suffix: "", answer: "to the power grid and through the grid to utility companies" },
+        { text: "Home-based wind turbines are also called", options: ["distributed wind power", "big wind power"], suffix: "", answer: "distributed wind power" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't10ex2',
+      tag: '10.2',
+      title: "Decide whether the statements are true or false (Video)",
+      instr: "Decide whether the statements are true or false according to the video.",
+      qs: [
+        { text: "Sailboats and windmills used wind thousands of years ago.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Wind is air in emotion.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The air of the water gets warm more quickly than over the land.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "In 2010, exactly 2% of US electricity came from wind power.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Wind turbines harness the electric energy of moving air.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Wind farms are different from solar farms as they do not connect individual wind turbines together.", options: ["true", "false"], suffix: "", answer: "false" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't10ex3',
+      tag: '10.3',
+      title: "Match the words with their definitions",
+      instr: "Match the words with their definitions.",
+      leftLabel: "Word",
+      rightLabel: "Definition",
+      pairs: [
+        { desc: "predictable", key: "pred", label: "happening in a way that is expected" },
+        { desc: "uneven temperatures", key: "uneven", label: "changing temperatures" },
+        { desc: "to harness", key: "harness", label: "to control it in order to use its power" },
+        { desc: "kinetic energy", key: "kinetic", label: "energy involving movement" },
+        { desc: "solar array", key: "array", label: "a number of connected solar panels" },
+        { desc: "to capture", key: "capture", label: "to catch, to harness" },
+        { desc: "wind", key: "wind", label: "air in motion" }
+      ]
+    },
+    {
+      type: 'cloze',
+      id: 't10ex4',
+      tag: '10.4',
+      title: "Complete the short text about wind turbines",
+      instr: "Complete the following short text with the correct words.",
+      bank: ["shaft", "windmill", "generator", "blades"],
+      lines: [
+        "A wind turbine is the modern advancement of the {0}.",
+        "The wind turns the {1}, which spin a {2}.",
+        "The shaft connects to a {3}, which makes electricity."
+      ],
+      answers: [
+        ["windmill"],
+        ["blades"],
+        ["shaft"],
+        ["generator"]
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't10ex5',
+      tag: '10.5',
+      title: "True or false according to 'How wind turbines work'",
+      instr: "Decide whether the statements are true or false according to the text.",
+      qs: [
+        { text: "Both the blades and the hub can spin.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The blades and the shaft together are called a rotor.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The housing of the wind turbine is called a nacelle.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The nacelle contains a drive shaft, a gearbox and a generator.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The role of the gearbox is to make the speed of the shaft lower.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The diameter of the rotor does not influence the amount of electricity produced.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "When wind turbines are connected, they are called a wind farm.", options: ["true", "false"], suffix: "", answer: "true" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 11: Wind Energy – Part 2
+// =========================================================
+{
+  id: 't11',
+  num: 11,
+  title: "Wind Energy – Part 2",
+  blocks: [
+    {
+      type: 'reading',
+      title: "Advantages of wind power",
+      html: `<p>The website of The Office of Energy Efficiency and Renewable Energy (USA) lists the following advantages of wind power:</p>
+<p><strong>1. Wind power is cost-effective.</strong> It is one of the lowest-priced renewable energy technologies available today, costing between four and six cents per kilowatt-hour, depending upon the wind resource and the particular project’s financing.</p>
+<p><strong>2. It's sustainable.</strong> For as long as the sun shines and the wind blows, the energy can be harnessed to send power across the grid.</p>
+<p><strong>3. Wind is a domestic source of energy.</strong> The nation's wind supply is abundant. If we use wind, we don't need to import so many fossil fuels.</p>
+<p><strong>4. Wind turbines can be built on existing farms or ranches.</strong> The best wind sites are found in rural areas. Farmers and ranchers can continue to work the land because the wind turbines use only a fraction of the land. Wind power plant owners make rent payments to the farmer for the use of the land, providing landowners with additional income.</p>
+<p><strong>5. It's a clean fuel source.</strong> Wind energy doesn't pollute the air like power plants that rely on burning fossil fuels, such as coal or natural gas.</p>
+<p><strong>6. Wind creates jobs.</strong> In 2014, the wind sector invested more than $8 billion of private capital in the U.S. economy to build projects and employed more than 73,000 workers.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://energy.gov/eere/wind/advantages-and-challenges-wind-energy" target="_blank">US Department of Energy (EERE)</a></p>`
+    },
+    {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch the following video about how wind turbines work:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe
+            src="https://www.youtube.com/embed/tsZITSeQFR0"
+            title="How wind turbines work"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
+      type: 'over2you',
+      id: 'oty11',
+      prompt: 'What can be the disadvantages of using wind turbines to generate electricity?'
+    }
+  ],
+  exercises: [
+    {
+      type: 'match',
+      id: 't11ex1',
+      tag: '11.1',
+      title: "Match the advantages to the sentences",
+      instr: "Match the advantages listed by the DOE to the corresponding sentence descriptions.",
+      leftLabel: "Advantage",
+      rightLabel: "Sentence Description",
+      pairs: [
+        { desc: "5. It's a clean fuel source", key: "clean", label: "Wind energy doesn't pollute the air like power plants that rely on burning fossil fuels, such as coal or natural gas." },
+        { desc: "3. Wind is a domestic source of energy", key: "dom", label: "The nation's wind supply is abundant. If we use wind, we don't need to import so many fossil fuels." },
+        { desc: "2. It's sustainable", key: "sust", label: "For as long as the sun shines and the wind blows, the energy can be harnessed to send power across the grid." },
+        { desc: "1. Wind power is cost-effective", key: "cost", label: "It is one of the lowest-priced renewable energy technologies available today, costing between four and six cents per kilowatt-hour." },
+        { desc: "4. Wind turbines can be built on farms or ranches", key: "farm", label: "Farmers can continue to work the land; wind power plant owners make rent payments to the farmer." },
+        { desc: "6. Wind creates jobs", key: "jobs", label: "In 2014, the wind sector invested more than $8 billion of private capital in the U.S. economy and employed more than 73,000 workers." }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't11ex2',
+      tag: '11.2',
+      title: "Match the words to their meanings",
+      instr: "Match the words to their meanings.",
+      leftLabel: "Word",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "domestic", key: "dom", label: "national, not foreign" },
+        { desc: "abundant", key: "abund", label: "more than enough" },
+        { desc: "grid", key: "grid", label: "network of power lines" },
+        { desc: "to harness", key: "harness", label: "to control in order to use its power" },
+        { desc: "rural areas", key: "rural", label: "areas outside cities, the countryside" },
+        { desc: "a fraction of sg", key: "frac", label: "a small part of sg (¼ is a fraction)" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't11ex3',
+      tag: '11.3',
+      title: "Decide whether the statements are true or false (Text)",
+      instr: "Decide whether the statements are true or false according to the text above.",
+      qs: [
+        { text: "Coal-fired power plants pollute the air more than wind turbines.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The wind supply of the US is abundant.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Wind is the cheapest energy source in the US today.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Farmers get additional income from selling their lands to wind power companies.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "In 2014, the US wind sector provided nearly 73,000 jobs.", options: ["true", "false"], suffix: "", answer: "false" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't11ex4',
+      tag: '11.4',
+      title: "Decide whether the statements are true or false (Video)",
+      instr: "Now, watch the video again and decide whether the statements are true or false.",
+      qs: [
+        { text: "Old windmills use the same principle as today's wind turbines.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Blowing air spins the blade because the air pressure is the same on both sides of the blade.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "On the top of the turbine, there's a weathervane.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The weathervane is connected to a computer that always turns the turbine into the wind.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "The shaft turns very fast.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "The gearbox reduces the rotation of the shaft.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Even a small wind farm can provide thousands of homes with energy.", options: ["true", "false"], suffix: "", answer: "true" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't11ex5',
+      tag: '11.5',
+      title: "Match the words with their meanings",
+      instr: "Match the words with their meanings.",
+      leftLabel: "Word",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "air pressure", key: "press", label: "the force that the air puts on the blade" },
+        { desc: "uneven", key: "uneven", label: "not equal, changing" },
+        { desc: "weathervane", key: "vane", label: "metal object on the roof to show which way the wind is blowing from" },
+        { desc: "shaft", key: "shaft", label: "long pole or rod" },
+        { desc: "gearbox", key: "box", label: "several wheels with pointed parts on the edges connected together" },
+        { desc: "revolution", key: "rev", label: "movement in a circle around a central point" }
+      ]
+    }
+  ]
+},
+
+// =========================================================
+//    Unit 12: Wind Energy – Part 3
+// =========================================================
+{
+  id: 't12',
+  num: 12,
+  title: "Wind Energy – Part 3",
+  blocks: [
+    {
+      type: 'reading',
+      title: "Challenges of Wind Power",
+      html: `<p>The website of The Office of Energy Efficiency and Renewable Energy (USA) lists the following disadvantages of wind power:</p>
+<p><strong>1. Wind power must still compete with conventional generation sources on a cost basis.</strong> Depending on how energetic a wind site is, the wind farm might not be cost competitive. Even though the cost of wind power has decreased dramatically in the past 10 years, the technology requires a higher initial investment than fossil-fueled generators.</p>
+<p><strong>2. Turbines might cause noise and aesthetic pollution.</strong> Although wind power plants have relatively little impact on the environment compared to conventional power plants, concern exists over the noise produced by the turbine blades and visual impacts to the landscape.</p>
+<p><strong>3. Turbine blades could damage local wildlife.</strong> Birds have been killed by flying into spinning turbine blades.</p>
+<p><strong>4. Good wind sites are often located in remote locations, far from cities where the electricity is needed.</strong> Transmission lines must be built to bring the electricity from the wind farm to the city.</p>
+<p><strong>5. Wind resource development might not be the most profitable use of the land.</strong> Land suitable for wind-turbine installation must compete with alternative uses for the land, which might be more highly valued than electricity generation.</p>
+<p>Most of these problems have been resolved or greatly reduced through technological development or by properly siting wind plants.</p>
+<p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://energy.gov/eere/wind/advantages-and-challenges-wind-energy" target="_blank">US Department of Energy (EERE)</a></p>`
+    },
+    {
+      type: 'vocab',
+      html: `<p style="margin:0 0 10px; font-weight:600; color:var(--ink);">Important words to remember:</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; font-size:0.92rem;">
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to compete</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">competitive</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">initial investment</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">site</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">in remote locations</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">agriculture</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">cultivation</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">profitable</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">noise pollution</span>
+  <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">aesthetic / visual pollution</span>
+</div>`
+    },
+    {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch the following video that summarizes the things you have learnt about wind energy:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe
+            src="https://www.youtube.com/embed/8PE69jcleKg"
+            title="Wind energy summary"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
+      type: 'over2you',
+      id: 'oty12',
+      prompt: 'Which one would be better for the world: supplying all our energy from solar or wind power?'
+    }
+  ],
+  exercises: [
+    {
+      type: 'match',
+      id: 't12ex1',
+      tag: '12.1',
+      title: "Match the words with their meanings",
+      instr: "Match the words with their meanings.",
+      leftLabel: "Word",
+      rightLabel: "Meaning",
+      pairs: [
+        { desc: "even though", key: "even", label: "although" },
+        { desc: "to decrease", key: "dec", label: "to fall" },
+        { desc: "to require", key: "req", label: "to need" },
+        { desc: "to resolve", key: "res", label: "to solve, to find a solution" },
+        { desc: "concern", key: "con", label: "worry" }
+      ]
+    },
+    {
+      type: 'match',
+      id: 't12ex2',
+      tag: '12.2',
+      title: "Words and phrases connected to money",
+      instr: "Match the words and phrases with their definitions.",
+      leftLabel: "Term",
+      rightLabel: "Definition",
+      pairs: [
+        { desc: "cost", key: "cost", label: "the amount of money needed to buy or do something" },
+        { desc: "cost-effective", key: "eff", label: "good value for the money paid" },
+        { desc: "costly", key: "costly", label: "expensive" },
+        { desc: "cost-competitive", key: "comp", label: "cheap compared to other similar things" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't12ex3',
+      tag: '12.3',
+      title: "Decide whether the statements are true or false (Text)",
+      instr: "Read the text again, and decide whether the statements are true or false.",
+      qs: [
+        { text: "More money is needed to build a wind farm than a coal-fired power plant.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Wind farms are usually built near cities.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Agricultural cultivation of lands is not as important as wind farms.", options: ["true", "false"], suffix: "", answer: "false" },
+        { text: "Some people are worried about noise and aesthetic pollution of wind farms.", options: ["true", "false"], suffix: "", answer: "true" },
+        { text: "Several birds have died due to the spinning blades of wind turbines.", options: ["true", "false"], suffix: "", answer: "true" }
+      ]
+    },
+    {
+      type: 'choice',
+      id: 't12ex4',
+      tag: '12.4',
+      title: "Watch the video (0:00 to 2:58) and choose the correct answer",
+      instr: "Watch the first part of the video again (from 0:00 to 2:58), and choose the correct answer.",
+      qs: [
+        { text: "We have harnessed wind power ...", options: ["for a thousand year.", "for thousands of years."], suffix: "", answer: "for thousands of years." },
+        { text: "The generator is ... of a wind turbine.", options: ["in the nacelle", "in the hub"], suffix: "", answer: "in the nacelle" },
+        { text: "One wind turbine needs less than ... of land.", options: ["one acre", "one square metre"], suffix: "", answer: "one acre" },
+        { text: "The United Kingdom is ... of Europe.", options: ["the least windy country", "the windiest country"], suffix: "", answer: "the windiest country" },
+        { text: "One wind turbine can generate as much electricity as ...", options: ["1,600 solar panels.", "16,000 solar panels."], suffix: "", answer: "16,000 solar panels." },
+        { text: "A wind turbine can work for", options: ["25 years.", "15 years."], suffix: "", answer: "25 years." },
+        { text: "Wind turbines don't need water to generate electricity, …", options: ["unlike solar panels.", "unlike coal, gas and nuclear power plants."], suffix: "", answer: "unlike coal, gas and nuclear power plants." },
+        { text: "Wind turbines ...", options: ["cause much fewer bird fatalities than buildings.", "are noisier than a vacuum cleaner at a distance of 400 metres from the base."], suffix: "", answer: "cause much fewer bird fatalities than buildings." }
+      ]
+    }
+  ]
+}
+
+];
+
+
+function renderApp(){
+  const contentsGrid = document.getElementById('contents-grid');
+  const root = document.getElementById('topics-root');
+  const n = TOPICS.length;
+
+  TOPICS.forEach(t=>{
+    const card = document.createElement('a');
+    card.className='contents-card'; card.href='#'+t.id;
+    card.innerHTML = '<span class="contents-num">'+t.num+'</span><span class="contents-text">'+t.title+'</span>';
+    contentsGrid.appendChild(card);
+
+    const hero = document.createElement('div'); hero.className='unit-hero'; hero.id=t.id;
+    hero.innerHTML = '<div class="unit-hero-inner"><div class="unit-badge">'+t.num+'</div><div><p class="kicker">Unit #'+t.num+'</p><h1>'+t.title+'</h1></div></div>';
+    root.appendChild(hero);
+
+    const bodyWrap = document.createElement('div'); bodyWrap.className='wrap';
+    let html = '';
+    let over2you = null;
+    t.blocks.forEach(b=>{
+      if(b.type==='p') html += '<p class="lede">'+b.html+'</p>';
+      else if(b.type==='vocab') html += '<div class="def-box">'+b.html+'</div>';
+      else if(b.type==='terms') html += '<ul class="term-list">'+b.items.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+      else if(b.type==='notes') html += '<div class="notes-box">'+b.items.map(x=>'<div>'+x+'</div>').join('')+'</div>';
+      else if(b.type==='bubbles') html += '<div class="bubble-field">'+b.items.map(x=>'<div class="bubble">'+x+'</div>').join('')+'</div>';
+      else if(b.type==='mistakes') html += '<div class="mistake-pair"><div class="mistake-col wrong"><h5>Common mistake</h5>'+b.wrong.map(x=>'<div>'+x+'</div>').join('')+'</div><div class="mistake-col right"><h5>Correct</h5>'+b.right.map(x=>'<div>'+x+'</div>').join('')+'</div></div>';
+      else if(b.type==='meme') html += '<div class="meme-placeholder"><span class="icon">🖼️</span><span class="caption">'+b.caption+'</span></div>';
+      else if(b.type==='illustration') html += '<figure class="illustration-card">'+b.svg+'<figcaption>'+b.caption+'</figcaption></figure>';
+      else if(b.type==='image') html += '<figure class="illustration-card"><img src="'+b.src+'" alt="'+(b.alt||'')+'" loading="lazy"><figcaption>'+b.caption+'</figcaption></figure>';
+      else if(b.type==='reading') html += '<div class="reading-card"><h4>'+b.title+'</h4><div class="reading-text">'+b.html+'</div></div>';
+      else if(b.type==='over2you') over2you = b;   // rendered after the exercises, at the end of the unit
+      else if(b.type==='reftable') html += '<div style="overflow-x:auto"><table class="ref-table"><thead><tr>'+b.headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+b.rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+    });
+    bodyWrap.innerHTML = html;
+
+    t.exercises.forEach(ex=>{
+      const exDiv = document.createElement('div'); exDiv.className='exercise'; exDiv.id=ex.id;
+      let controls = '';
+      if(ex.type==='cloze'){
+        controls = '<button class="btn" onclick="checkExercise(\''+ex.id+'\')">Check answers</button> <button class="btn secondary" onclick="revealExercise(\''+ex.id+'\')">Reveal answers</button> <button class="btn secondary" onclick="resetExercise(\''+ex.id+'\')">Reset</button> <span class="score" id="'+ex.id+'-score"></span>';
+        exDiv.innerHTML = '<h3><span class="exercise-num">'+ex.tag+'</span>'+ex.title+'</h3><p class="instructions">'+ex.instr+'</p>' + (ex.bank ? '<div class="word-bank" id="'+ex.id+'-bank"></div>' : '') + '<ul class="cloze-list" id="'+ex.id+'-list"></ul><div class="exercise-controls">'+controls+'</div>';
+      } else if(ex.type==='match'){
+        controls = '<button class="btn secondary" onclick="resetMatch(\''+ex.id+'\')">Reset</button> <span class="score" id="'+ex.id+'-score"></span>';
+        exDiv.innerHTML = '<h3><span class="exercise-num">'+ex.tag+'</span>'+ex.title+'</h3><p class="instructions">'+ex.instr+'</p><div class="match-grid"><div class="match-col"><h4>'+ex.leftLabel+'</h4><div id="'+ex.id+'-left"></div></div><div class="match-col"><h4>'+ex.rightLabel+'</h4><div id="'+ex.id+'-right"></div></div></div><div class="exercise-controls">'+controls+'</div>';
+      } else if(ex.type==='choice'){
+        controls = '<button class="btn" onclick="checkChoice(\''+ex.id+'\')">Check answers</button> <button class="btn secondary" onclick="revealChoice(\''+ex.id+'\')">Reveal answers</button> <button class="btn secondary" onclick="resetChoice(\''+ex.id+'\')">Reset</button> <span class="score" id="'+ex.id+'-score"></span>';
+        exDiv.innerHTML = '<h3><span class="exercise-num">'+ex.tag+'</span>'+ex.title+'</h3><p class="instructions">'+ex.instr+'</p><ul class="choice-list" id="'+ex.id+'-list"></ul><div class="exercise-controls">'+controls+'</div>';
+      }
+      bodyWrap.appendChild(exDiv);
+    });
+
+    if(over2you){
+      const otyDiv = document.createElement('div');
+      otyDiv.innerHTML = overToYouHtml(over2you);
+      bodyWrap.appendChild(otyDiv);
+    }
+
+    root.appendChild(bodyWrap);
+
+    // Pager sits at the end of the unit it belongs to
+    const pagerWrap = document.createElement('div'); pagerWrap.className='wrap';
+    pagerWrap.innerHTML = '<div class="topic-pager">' +
+      '<span class="count">'+t.num+' / '+n+' &middot; <a href="/index.html">Contents</a></span>' +
+      '</div>';
+    root.appendChild(pagerWrap);
+  });
+
+  /* Unit 13 (Glossary) lives on its own page */
+  const gCard = document.createElement('a');
+  gCard.className='contents-card'; gCard.href='glossary.html';
+  gCard.innerHTML = '<span class="contents-num">13</span><span class="contents-text">Glossary</span>';
+  contentsGrid.appendChild(gCard);
+
+  TOPICS.forEach(t=>{
+    t.exercises.forEach(ex=>{
+      if(ex.type==='cloze'){
+        EX[ex.id] = ex.answers;
+        if(ex.bank) buildBank(ex.id, ex.id+'-bank', ex.bank);
+        buildTokenCloze(ex.id, ex.id+'-list', ex.lines);
+      } else if(ex.type==='match'){
+        renderMatch(ex.id, ex.pairs);
+      } else if(ex.type==='choice'){
+        renderChoice(ex.id, ex.qs);
+      }
+    });
+  });
+}
+renderApp();
+initNotes();
+if(window.location.hash){
+  const target = document.getElementById(window.location.hash.slice(1));
+  if(target) target.scrollIntoView({behavior:'instant', block:'start'});
+}
+
+</script>
+
+</body></html>
