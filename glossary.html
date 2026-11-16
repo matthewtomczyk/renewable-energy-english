@@ -95,29 +95,37 @@
   }
   .alpha-nav-inner{
     max-width:920px; margin:0 auto; padding:14px 20px 16px;
-    display:flex; flex-wrap:wrap; gap:7px; align-items:center;
+    display:flex; flex-wrap:nowrap; align-items:center; gap:12px;
   }
   .alpha-nav-label{
-    font-family:"Poppins",sans-serif; font-weight:600; font-size:.74rem;
-    letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint);
-    margin-right:6px;
+    font-family:"Poppins",sans-serif; font-weight:600; font-size:.72rem;
+    letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint);
+    flex:0 0 auto;
   }
+  .alpha-letters{
+    display:flex; flex-wrap:nowrap; align-items:center; gap:5px;
+    flex:1 1 auto; min-width:0; overflow-x:auto; overflow-y:hidden;
+    scrollbar-width:none; -ms-overflow-style:none;
+    padding-bottom:1px;
+  }
+  .alpha-letters::-webkit-scrollbar{ display:none; }
   .alpha-nav a{
     display:inline-flex; align-items:center; justify-content:center;
-    min-width:30px; height:30px; padding:0 7px;
+    flex:0 0 auto;
+    min-width:27px; height:28px; padding:0 6px;
     border-radius:8px; border:1px solid var(--line);
     background:var(--panel); color:var(--ink-soft);
-    font-family:"Poppins",sans-serif; font-weight:600; font-size:.82rem;
+    font-family:"Poppins",sans-serif; font-weight:600; font-size:.8rem;
     text-decoration:none;
   }
   .alpha-nav a:hover{ border-color:var(--red-mid); color:var(--red-mid); }
   .alpha-nav .top-btn{
-    margin-left:auto;
-    display:inline-flex; align-items:center; gap:6px;
-    height:30px; padding:0 14px;
+    flex:0 0 auto;
+    display:inline-flex; align-items:center; gap:5px;
+    height:28px; padding:0 12px;
     border-radius:8px; border:1px solid var(--red-fill);
     background:var(--red-fill); color:#fff;
-    font-family:"Poppins",sans-serif; font-weight:600; font-size:.76rem;
+    font-family:"Poppins",sans-serif; font-weight:600; font-size:.72rem;
     letter-spacing:.06em; text-decoration:none; cursor:pointer;
   }
   .alpha-nav .top-btn:hover{ filter:brightness(1.12); }
@@ -223,7 +231,7 @@ function renderGlossary(){
   const root = document.getElementById('glossary-root');
   const nav = document.getElementById('alpha-nav');
 
-  let navHtml = '<span class="alpha-nav-label">Jump to</span>';
+  let navHtml = '<span class="alpha-nav-label">Jump to</span><span class="alpha-letters">';
   let bodyHtml = '';
 
   GROUPS.forEach(function(g){
@@ -246,7 +254,7 @@ function renderGlossary(){
     '</section>';
   });
 
-  navHtml += '<a class="top-btn" id="top-btn" href="#top">&uarr; Top</a>';
+  navHtml += '</span><a class="top-btn" id="top-btn" href="#top">&uarr; Top</a>';
 
   nav.innerHTML = navHtml;
   root.innerHTML = bodyHtml;
