@@ -562,7 +562,7 @@ function overToYouHtml(b){
   return '<div class="over-to-you">' +
     '<div class="over-to-you-head"><h3>Over to you</h3></div>' +
     '<p>'+b.prompt+'</p>' +
-    (b.video ? '<div class="over-to-you-video"><iframe src="'+b.video.src+'" title="'+b.video.title+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>' : '') +
+    (b.video ? '<div class="over-to-you-video"><iframe loading="lazy" src="'+b.video.src+'" title="'+b.video.title+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>' : '') +
     '<textarea id="'+b.id+'" placeholder="Type your notes here&hellip;"></textarea>' +
     '<div class="save-note" data-note-for="'+b.id+'">Saved automatically in this browser only &mdash; not shared with anyone.</div>' +
     '</div>';
@@ -817,7 +817,7 @@ const TOPICS = [
     </p>
 
     <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-      <iframe
+      <iframe loading="lazy"
         src="https://www.youtube.com/embed/8q7_aV8eLUE"
         title="What is a carbon footprint?"
         style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
@@ -1360,7 +1360,7 @@ const TOPICS = [
         </p>
 
         <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-          <iframe
+          <iframe loading="lazy"
             src="https://www.youtube.com/embed/f8_NdUb8sjc"
             title="How PV panels work"
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
@@ -1459,7 +1459,7 @@ const TOPICS = [
         </p>
 
         <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-          <iframe
+          <iframe loading="lazy"
             src="https://www.youtube.com/embed/FIXQlATFELI"
             title="PV panels"
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
@@ -1722,7 +1722,7 @@ const TOPICS = [
         </p>
 
         <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-          <iframe
+          <iframe loading="lazy"
             src="https://www.youtube.com/embed/dQ-cIVJuDks"
             title="Biomass"
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
@@ -1860,26 +1860,6 @@ const TOPICS = [
   title: "Biomass – Part 3",
   blocks: [
     {
-      type: 'p',
-      html: `
-        <p style="margin:12px 0 16px;">
-          <span style="color:var(--red); font-weight:600;">
-            Watch this video about biomass and how electricity is made from it:
-          </span>
-        </p>
-
-        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-          <iframe
-            src="https://www.youtube.com/embed/HZoPNJGi6ig"
-            title="Biomass and electricity generation"
-            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-      `
-    },
-    {
       type: 'reading',
       title: "How are pellets made?",
       html: `<p>Pellet mills can produce pellets from saw dust, wood chips, scrap wood and even full trees. These different forms of wood are put through a chipper or a hammer mill, which breaks them down into a consistent smaller size. Afterwards, wood chips are fed through a dryer to remove the moisture content of the raw material, especially in case of freshly cut wood.</p>
@@ -2016,7 +1996,7 @@ const TOPICS = [
         </p>
 
         <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-          <iframe
+          <iframe loading="lazy"
             src="https://www.youtube.com/embed/niZ_cvu9Fts"
             title="Wind energy"
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
@@ -2166,7 +2146,7 @@ const TOPICS = [
         </p>
 
         <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-          <iframe
+          <iframe loading="lazy"
             src="https://www.youtube.com/embed/tsZITSeQFR0"
             title="How wind turbines work"
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
@@ -2313,7 +2293,7 @@ const TOPICS = [
         </p>
 
         <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
-          <iframe
+          <iframe loading="lazy"
             src="https://www.youtube.com/embed/8PE69jcleKg"
             title="Wind energy summary"
             style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
