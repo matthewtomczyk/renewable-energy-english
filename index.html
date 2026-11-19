@@ -1860,6 +1860,26 @@ const TOPICS = [
   title: "Biomass – Part 3",
   blocks: [
     {
+      type: 'p',
+      html: `
+        <p style="margin:12px 0 16px;">
+          <span style="color:var(--red); font-weight:600;">
+            Watch this video about biomass and how electricity is made from it:
+          </span>
+        </p>
+
+        <div style="position:relative; width:100%; aspect-ratio:16/9; margin-bottom:16px;">
+          <iframe loading="lazy"
+            src="https://www.youtube.com/embed/nVl17JLn_u0"
+            title="Biomass and electricity generation"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `
+    },
+    {
       type: 'reading',
       title: "How are pellets made?",
       html: `<p>Pellet mills can produce pellets from saw dust, wood chips, scrap wood and even full trees. These different forms of wood are put through a chipper or a hammer mill, which breaks them down into a consistent smaller size. Afterwards, wood chips are fed through a dryer to remove the moisture content of the raw material, especially in case of freshly cut wood.</p>
