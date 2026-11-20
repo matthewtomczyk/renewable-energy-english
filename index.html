@@ -280,6 +280,19 @@
   .cloze-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
   .cloze-list li{ line-height:2.1; }
   .cloze-list .qnum{ font-family:"IBM Plex Mono",monospace; color:var(--ink-faint); font-size:.85rem; margin-right:4px; }
+
+  /* Image cloze: one answer field under each picture */
+  .image-cloze-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:0; }
+  .image-cloze-card{
+    margin:0; padding:12px;
+    background:var(--paper); border:1px solid var(--line); border-radius:8px;
+  }
+  .image-cloze-card img{
+    display:block; width:100%; aspect-ratio:3/2; object-fit:contain;
+    background:var(--panel); border-radius:6px;
+  }
+  .image-cloze-card figcaption{ margin-top:10px; }
+  .image-cloze-card .blank{ display:block; width:100%; min-width:0; margin:0; text-align:center; }
   .blank{
     font-family:"Inter",sans-serif; font-size:.96rem; padding:4px 7px;
     border:1.5px solid var(--line-strong); border-radius:5px;
@@ -393,6 +406,31 @@ function buildTokenCloze(exId, containerId, lines){
       return '<input class="blank" type="text" data-idx="'+idx+'" autocomplete="off">';
     });
     container.appendChild(li);
+  });
+}
+function buildImageCloze(exId, containerId, images){
+  const container = document.getElementById(containerId);
+  images.forEach((image,index)=>{
+    const card = document.createElement('figure');
+    card.className = 'image-cloze-card';
+
+    const img = document.createElement('img');
+    img.src = image.src;
+    img.alt = image.alt || 'Organic matter used as an energy source';
+    img.loading = 'lazy';
+
+    const caption = document.createElement('figcaption');
+    const input = document.createElement('input');
+    input.className = 'blank';
+    input.type = 'text';
+    input.dataset.idx = index;
+    input.autocomplete = 'off';
+    input.setAttribute('aria-label', 'Description for picture '+(index+1));
+
+    caption.appendChild(input);
+    card.appendChild(img);
+    card.appendChild(caption);
+    container.appendChild(card);
   });
 }
 function checkExercise(exId){
@@ -794,6 +832,12 @@ const TOPICS = [
   num: 2,
   title: "Renewable Energy and Rural Development – Part 2",
   blocks: [
+  {
+      type: 'image',
+      src: 'images/unit2-main.png',
+      alt: 'Renewable energy and rural development',
+      caption: 'Renewable energy and rural development'
+    },
     {
       type: 'reading',
       title: "The carbon footprint",
@@ -969,6 +1013,12 @@ const TOPICS = [
   title: "Renewable Energy and Rural Development – Part 3",
   blocks: [
     {
+      type: 'image',
+      src: 'images/unit3-main.png',
+      alt: 'Renewable energy and rural development',
+      caption: 'Investing in development'
+    },
+    {
       type: 'p',
       html: "Check the meanings of the following words and phrases in your dictionary: lease payments, manufacturing, installation, maintenance, property tax, construction, income tax."
     },
@@ -1015,6 +1065,12 @@ const TOPICS = [
   <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to decline</span>
   <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">declining costs</span>
 </div>`
+    },
+    {
+      type: 'image',
+      src: 'images/unit-3-2.png',
+      alt: 'Renewable energy and rural development',
+      caption: 'Workers engaged in economic activity'
     },
     {
       type: 'p',
@@ -1161,6 +1217,12 @@ const TOPICS = [
   title: "Photovoltaic Energy – Part 1",
   blocks: [
     {
+      type: 'image',
+      src: 'images/unit4.-main.png',
+      alt: 'Solar energy',
+      caption: 'Solar energy'
+    },
+    {
       type: 'reading',
       title: "Interesting Facts About The Sun",
       html: `<p>&bull; In a single day, the Sun provides about 300 BTUs of heat per square foot of the Earth’s surface.</p>
@@ -1220,6 +1282,12 @@ const TOPICS = [
   <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">appliance</span>
   <span style="padding:4px 10px; background:var(--paper); border:1px solid var(--line-strong); border-radius:6px; color:var(--ink);">to supply</span>
 </div>`
+    },
+    {
+      type: 'image',
+      src: 'images/unit4-2.png',
+      alt: 'Photovotaic panels',
+      caption: 'Photovotaic panels'
     },
     {
       type: 'reading',
@@ -1324,6 +1392,12 @@ const TOPICS = [
   num: 5,
   title: "Photovoltaic Energy – Part 2",
   blocks: [
+    {
+      type: 'image',
+      src: 'images/uniit5-main.png',
+      alt: 'Solar energy',
+      caption: 'Modern solar panels'
+    },
     {
       type: 'reading',
       title: "Solar energy",
@@ -1431,10 +1505,10 @@ const TOPICS = [
       instr: "Select the correct component in the sequence of solar electricity generation.",
       qs: [
         { text: "Step 1 in the solar energy flow is the", options: ["sun", "PV panel", "inverter"], suffix: ".", answer: "sun" },
-        { text: "Step 2 is the", options: ["PV panel", "inverter", "generation meter"], suffix: ".", answer: "PV panel" },
+        { text: "Step 2 is the", options: ["inverter", "PV panel", "generation meter"], suffix: ".", answer: "PV panel" },
         { text: "Step 3 is the", options: ["inverter", "mains consumer unit", "appliance"], suffix: ".", answer: "inverter" },
-        { text: "Step 4 is the", options: ["generation meter", "mains consumer unit", "PV panel"], suffix: ".", answer: "generation meter" },
-        { text: "Step 5 is the", options: ["mains consumer unit", "appliance", "inverter"], suffix: ".", answer: "mains consumer unit" },
+        { text: "Step 4 is the", options: ["mains consumer unit", "PV panel", "generation meter"], suffix: ".", answer: "generation meter" },
+        { text: "Step 5 is the", options: ["appliance", "mains consumer unit", "inverter"], suffix: ".", answer: "mains consumer unit" },
         { text: "Step 6 is the household", options: ["appliance", "PV panel", "generation meter"], suffix: ".", answer: "appliance" }
       ]
     }
@@ -1476,6 +1550,12 @@ const TOPICS = [
 <p>Photovoltaic cells are made of special materials called semiconductors such as silicon, which is currently used most commonly. Basically, when light strikes the cell, a certain portion of it is absorbed within the semiconductor material. This means that the energy of the absorbed light is transferred to the semiconductor. The energy knocks electrons loose, allowing them to flow freely.</p>
 <p>PV cells also all have one or more electric field that acts to force electrons freed by light absorption to flow in a certain direction. This flow of electrons is a current, and by placing metal contacts on the top and bottom of the PV cell, we can draw that current off for external use, say, to power a calculator. This current, together with the cell's voltage (which is a result of its built-in electric field or fields), defines the power (or wattage) that the solar cell can produce.</p>
 <p style="font-size:0.85em; color:var(--ink-faint); margin-top:12px;">Source: <a href="http://science.howstuffworks.com/environmental/energy/solar-cell1.htm" target="_blank">HowStuffWorks</a></p>`
+    },
+    {
+      type: 'image',
+      src: 'images/unit6-main.png',
+      alt: 'Converting Photons into Electrons',
+      caption: 'Converting Photons into Electrons'
     },
     {
       type: 'over2you',
@@ -1569,6 +1649,12 @@ const TOPICS = [
   num: 7,
   title: "Biomass – Part 1",
   blocks: [
+     {
+      type: 'image',
+      src: 'images/unit7-main.png',
+      alt: 'Biomass',
+      caption: 'Converting Photons into Electrons'
+    },
     {
       type: 'reading',
       title: "Definition of biomass",
@@ -1666,9 +1752,32 @@ const TOPICS = [
       ]
     },
     {
-      type: 'match',
+      type: 'cloze',
       id: 't7ex3',
       tag: '7.3',
+      title: "Name the organic matter in the pictures",
+      instr: "In the following pictures, you can see some organic matter used as sources of energy. Choose their names from the list below, and write the correct name under each picture.",
+      bank: ["wood chips", "saw dust", "corn stalks", "straw", "wood pellets"],
+      lines: [],
+      images: [
+        { src: 'images/exercise-7/7-sawdust.png', alt: 'Picture 1: organic matter used as an energy source' },
+        { src: 'images/exercise-7/7-wood-chips.png', alt: 'Picture 2: organic matter used as an energy source' },
+        { src: 'images/exercise-7/7-wood-pellets.png', alt: 'Picture 3: organic matter used as an energy source' },
+        { src: 'images/exercise-7/7-corn-stalks.png', alt: 'Picture 4: organic matter used as an energy source' },
+        { src: 'images/exercise-7/7-straw.png', alt: 'Picture 5: organic matter used as an energy source' }
+      ],
+      answers: [
+        ["saw dust"],
+        ["wood chips"],
+        ["wood pellets"],
+        ["corn stalks"],
+        ["straw"]
+      ]
+    },
+    {
+      type: 'match',
+      id: 't7ex4',
+      tag: '7.4',
       title: "Which category of biomass do these products belong to?",
       instr: "Match the product with its biomass category.",
       leftLabel: "Product",
@@ -1684,8 +1793,8 @@ const TOPICS = [
     },
     {
       type: 'choice',
-      id: 't7ex4',
-      tag: '7.4',
+      id: 't7ex5',
+      tag: '7.5',
       title: "Choose the correct answer",
       instr: "Choose the correct answer based on the unit.",
       qs: [
@@ -1765,6 +1874,12 @@ const TOPICS = [
 <strong>solid</strong> &ndash; hard, not having the form of a gas or a liquid<br>
 <strong>liquid</strong> &ndash; material that can flow (e.g. water)
 </p>`
+    },
+     {
+      type: 'image',
+      src: 'images/unit8-2.png',
+      alt: 'Biomass',
+      caption: 'Biomass'
     },
     {
       type: 'over2you',
@@ -1886,6 +2001,12 @@ const TOPICS = [
 <p>After drying, the sawdust is pressed through dies at high pressure. A die is a metal container that gives sawdust the shape and diameter of a pellet. During this process, the sawdust gets very hot and releases its fibre that keeps the sawdust together.</p>
 <p>When the hot, shaped sawdust is coming out of the die, it is cut into pieces of a certain length. Then it is cooled in a cooling tower. This is when the pellets become hard. After cooling, they are stored in large silos, then put into plastic bags or sold in bulk.</p>`
     },
+     {
+      type: 'image',
+      src: 'images/unit9-2.png',
+      alt: 'Pellets',
+      caption: 'Biomass pellets'
+    },
     {
       type: 'over2you',
       id: 'oty9',
@@ -1980,6 +2101,12 @@ const TOPICS = [
   num: 10,
   title: "Wind Energy – Part 1",
   blocks: [
+      {
+      type: 'image',
+      src: 'images/unit10-main.png',
+      alt: 'windmill',
+      caption: 'A windmill'
+    },
     {
       type: 'reading',
       title: "Wind Energy",
@@ -2047,6 +2174,12 @@ const TOPICS = [
 </p>`
     },
     {
+      type: 'image',
+      src: 'images/unit10-2.png',
+      alt: 'turbine',
+      caption: 'A wind turbine'
+    },
+    {
       type: 'over2you',
       id: 'oty10',
       prompt: 'What can be the advantages of using wind turbines to generate electricity?'
@@ -2060,7 +2193,7 @@ const TOPICS = [
       title: "Choose the correct answer(s)",
       instr: "Choose the correct answer based on the introductory text.",
       qs: [
-        { text: "A wind turbine usually consists of", options: ["three blades and a tube-shaped tower", "three wings and a wooden pole"], suffix: "", answer: "three blades and a tube-shaped tower" },
+        { text: "A wind turbine usually consists of", options: ["three wings and a wooden pole", "three blades and a tube-shaped tower"], suffix: "", answer: "three blades and a tube-shaped tower" },
         { text: "Utility-scale wind farms deliver electricity", options: ["to the power grid and through the grid to utility companies", "directly to the end-user without any power lines"], suffix: "", answer: "to the power grid and through the grid to utility companies" },
         { text: "Home-based wind turbines are also called", options: ["distributed wind power", "big wind power"], suffix: "", answer: "distributed wind power" }
       ]
@@ -2144,6 +2277,12 @@ const TOPICS = [
   num: 11,
   title: "Wind Energy – Part 2",
   blocks: [
+    {
+      type: 'image',
+      src: 'images/unit11.png',
+      alt: 'windfarm',
+      caption: 'Windfarms'
+    },
     {
       type: 'reading',
       title: "Advantages of wind power",
@@ -2275,6 +2414,12 @@ const TOPICS = [
   num: 12,
   title: "Wind Energy – Part 3",
   blocks: [
+    {
+      type: 'image',
+      src: 'images/unit12.png',
+      alt: 'wind energy',
+      caption: 'Wind energy'
+    },
     {
       type: 'reading',
       title: "Challenges of Wind Power",
@@ -2437,7 +2582,10 @@ function renderApp(){
       let controls = '';
       if(ex.type==='cloze'){
         controls = '<button class="btn" onclick="checkExercise(\''+ex.id+'\')">Check answers</button> <button class="btn secondary" onclick="revealExercise(\''+ex.id+'\')">Reveal answers</button> <button class="btn secondary" onclick="resetExercise(\''+ex.id+'\')">Reset</button> <span class="score" id="'+ex.id+'-score"></span>';
-        exDiv.innerHTML = '<h3><span class="exercise-num">'+ex.tag+'</span>'+ex.title+'</h3><p class="instructions">'+ex.instr+'</p>' + (ex.bank ? '<div class="word-bank" id="'+ex.id+'-bank"></div>' : '') + '<ul class="cloze-list" id="'+ex.id+'-list"></ul><div class="exercise-controls">'+controls+'</div>';
+        const answerList = ex.images
+          ? '<div class="image-cloze-grid" id="'+ex.id+'-list"></div>'
+          : '<ul class="cloze-list" id="'+ex.id+'-list"></ul>';
+        exDiv.innerHTML = '<h3><span class="exercise-num">'+ex.tag+'</span>'+ex.title+'</h3><p class="instructions">'+ex.instr+'</p>' + (ex.bank ? '<div class="word-bank" id="'+ex.id+'-bank"></div>' : '') + answerList + '<div class="exercise-controls">'+controls+'</div>';
       } else if(ex.type==='match'){
         controls = '<button class="btn secondary" onclick="resetMatch(\''+ex.id+'\')">Reset</button> <span class="score" id="'+ex.id+'-score"></span>';
         exDiv.innerHTML = '<h3><span class="exercise-num">'+ex.tag+'</span>'+ex.title+'</h3><p class="instructions">'+ex.instr+'</p><div class="match-grid"><div class="match-col"><h4>'+ex.leftLabel+'</h4><div id="'+ex.id+'-left"></div></div><div class="match-col"><h4>'+ex.rightLabel+'</h4><div id="'+ex.id+'-right"></div></div></div><div class="exercise-controls">'+controls+'</div>';
@@ -2475,7 +2623,8 @@ function renderApp(){
       if(ex.type==='cloze'){
         EX[ex.id] = ex.answers;
         if(ex.bank) buildBank(ex.id, ex.id+'-bank', ex.bank);
-        buildTokenCloze(ex.id, ex.id+'-list', ex.lines);
+        if(ex.images) buildImageCloze(ex.id, ex.id+'-list', ex.images);
+        else buildTokenCloze(ex.id, ex.id+'-list', ex.lines);
       } else if(ex.type==='match'){
         renderMatch(ex.id, ex.pairs);
       } else if(ex.type==='choice'){
